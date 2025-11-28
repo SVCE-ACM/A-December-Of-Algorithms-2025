@@ -68,259 +68,351 @@ Check out our FAQ for more information.
 
 ## Algorithms
 
-### December 01 - The Vanishing Number
+## December 01 – Perfect Squares Counter
+
+### Problem Statement
+```
+
+You are a mathematician exploring numbers. You are given a range of integers from 1 to N. Your task is to find all the perfect square numbers in this range and calculate their total count.
+• A perfect square is an integer that can be written as the square of another integer.
+• For example, 1, 4, 9, 16 are perfect squares.
+```
+
+### Input Format:
+```
+• A single integer N (1 ≤ N ≤ 10⁵), representing the upper bound of the range.
+```
+### Output Format:
+```
+• First, print all the perfect squares in ascending order, separated by spaces.
+• Then, in the next line, print the total count of perfect squares.
+```
+
+### Sample Input 1
+```
+20
+```
+
+### Sample Output 1
+```
+1 4 9 16
+4
+```
+
+### Sample Input 2
+```
+5
+```
+
+### Sample Output 2
+```
+1 4
+2
+```
+
+### Explanation
+
+```
+• For N = 20, the perfect squares are 1²=1, 2²=4, 3²=9, 4²=16 → total count = 4.
+• For N = 5, only 1²=1 and 2²=4 are perfect squares → total count = 2.
+```
+
+#### Constraints
+```
+1 ≤ N ≤ 10^5
+1 ≤ array[i] ≤ N
+All elements are unique
+```
+
+### Reference
+
+- GeeksforGeeks – Perfect Squares  
+  https://www.geeksforgeeks.org/check-if-a-number-is-perfect-square/
+
+- W3Schools – Math Functions  
+  https://www.w3schools.com/cpp/cpp_math.asp
+
+- Programiz – Square Root  
+  https://www.programiz.com/cpp-programming/library-function/cmath/sqrt
+
+
+## December 02 - Total of Distinct Values
 
 #### Problem Statement
 
 ```
-Imagine a race event with N participants, each having a unique bib number from 1 to N.
-After the race, the event organizers collect the bib numbers of all participants who showed
-up. However, one participant didn’t show up, and their bib number is missing. The task is to
-find out which bib number is missing in order to identify the participant who was absent.
+The Data Standardization Team needs a utility to display a sequence of integers in four
+different numerical bases in a clean tabular format.
+
+You are given an integer N. For every number i from 1 to N, you must print four different
+representations of i:
+
+1. Decimal (Base 10)
+2. Octal (Base 8)
+3. Hexadecimal (Base 16) — letters A–F must be uppercase
+4. Binary (Base 2)
+
+The output should display all four formats in aligned columns.
 ```
 
-```
-Given an integer N and an array of size N-1 containing N-1 numbers between 1 to N. Find
-the number(between 1 to N), that is not present in the given array.
-```
-
-![image](https://github.com/user-attachments/assets/177fbe2f-9248-481b-adb6-61dfcea59582)
-
-Example 1:
-
-```
-Input Format:
-N = 5, array[] = {1,2,4,5}
-Result: 3
-```
-
-```
-Explanation:
-In the given array, number 3 is missing. So, 3 is the answer.
-```
-
-Example 2:
-
-```
-Input Format:
-N = 3, array[] = {1,3}
-Result: 2
-```
-
-### December 02 - The Wave Sort Challenge
-
-#### Problem Statement
-
-```
-Imagine you're at a music concert, surrounded by thousands of fans.
-As the music plays, the crowd begins to move in a rhythmic pattern, rising and falling like a wave.
-The energy is contagious, and everyone follows the same wave-like motion.
-Now, think of the crowd as an unsorted array of integers, and your job is to arrange them in such a way that
-the heights of the fans rise and fall, just like the waves at the concert.
-Your task is to organize the array in a similar wave-like fashion!
-```
-
-```
-Sort an array in wave form
-Given an unsorted array of integers, sort the array into a wave array. An array arr[0..n-1] is sorted in wave form if:
-arr[0] >= arr[1] <= arr[2] >= arr[3] <= arr[4] >= ….
-
-```
-
-![image1](https://github.com/user-attachments/assets/7c46bc27-91f9-4a89-8731-37efa558a939)
-
-Example 1:
+### Example 1:
 
 ```
 Input:
-arr[] = {10, 5, 6, 3, 2, 20, 100, 80}
+3
+
 Output:
-arr[] = {10, 5, 6, 2, 20, 3, 100, 80}
-
+    1     1     1     1
+    2     2     2    10
+    3     3     3    11
 ```
 
-```
-Explanation:
-Here you can see {10, 5, 6, 2, 20, 3, 100, 80}. The first element is larger than the second, and the same pattern repeats again.
-Large element – small element – large element – small element, and so on.
-It can also be in the opposite pattern (small element – large element – small element – large element).
-All you need to maintain is the up-down fashion, which represents a wave. There can be multiple answers.
+### Example 2:
 
 ```
-
-Example 2:
-
-```
-Additional Scenario
 Input:
-arr[] = {1, 2, 3, 4, 5, 6}
+6
+
 Output:
-arr[] = {2, 1, 4, 3, 6, 5}
-
+    1     1     1      1
+    2     2     2     10
+    3     3     3     11
+    4     4     4    100
+    5     5     5    101
+    6     6     6    110
 ```
 
+#### Constraints
 ```
-Explanation:
-In this case, we swap adjacent elements to form a wave-like array.
-{2, 1, 4, 3, 6, 5} satisfies the condition where elements are alternately large and small.
+1 ≤ N ≤ 99
+```
+#### Explanation
 
 ```
+For every number from 1 to N, the program converts the value into:
+- Octal using base-8 representation
+- Hexadecimal using base-16 (A–F in uppercase)
+- Binary using base-2
 
-### December 03 - Alternating Square Arrangement
+These converted values are then printed in four neatly aligned columns,
+allowing easy comparison between different number systems.
+```
+
+
+#### Reference
+
+ https://www.geeksforgeeks.org/number-system-conversions/  
+ https://www.w3schools.com/python/python_numbers.asp  
+ https://www.programiz.com/python-programming/examples/decimal-binary-convert  
+
+
+### December 03 - Bridge Crossing Challenge
 
 #### Problem Statement
 
 ```
-You are given integers ￼ (number of red squares) and ￼ (number of blue squares).
-Your task is to arrange the squares in a sequence such that:
-No two adjacent squares have the same color.
-If it is not possible to create such an arrangement, return "Not possible".
+
+You are an explorer standing at the start of a series of stepping stones across a river. Each stone is numbered from 0 to N-1. Each stone has a number written on it, which tells you the maximum number of stones you can jump forward from that stone.
+
+Your goal is to reach the last stone.
+
+From stone i, if the number is 3, you can jump to stone i+1, i+2, or i+3.
+If the number is 0, you cannot jump forward from that stone.
+
+You need to determine whether it is possible to reach the last stone from the first stone.
 
 ```
 
-```
-Input
-
-Two integers:
-R￼: Number of red squares.
-B￼: Number of blue squares.
-
-Output
-
-A valid arrangement as a string (e.g., "RBRBR" or "BRBRB") that satisfies the condition, or "Not possible" if no valid arrangement exists.
-
+#### Input Format
 
 ```
 
-Sample Input and Output:
-Example 1:
-
-```
-Input:
-R = 3
-B = 2
-
-Output:
-"RBRBR"
-```
-
-Explanation:
-
-```
-The sequence "RBRBR" satisfies the condition since no two adjacent squares are the same color.
-```
-
-Example 2:
-
-```
-Input:
-R = 4
-B = 2
-
-Output:
-"Not possible"
-```
-
-Explanation:
-
-```
-It is impossible to arrange 4 red squares and 2 blue squares without
-having two adjacent squares of the same color. Hence, the output is "Not possible".
+An array of integers stones, where stones[i] indicates the maximum jump length from stone i.
 
 ```
 
-### December 04 - Plant Growth Tracker
+#### Output Format
+
+```
+
+true if you can reach the last stone, otherwise false.
+
+```
+
+#### Sample Input 1
+
+```
+
+stones = [2,3,1,1,4]
+
+```
+
+#### Sample Output 1
+
+```
+
+true
+
+```
+
+#### Sample Input 2
+
+```
+
+stones = [3,2,1,0,4]
+
+```
+
+#### Sample Output 2
+
+```
+
+false
+
+```
+
+#### Explanation
+
+```
+
+Sample Input 1:
+Jump 1 stone from index 0 → 1
+Jump 3 stones from index 1 → 4 (last stone reached)
+
+Sample Input 2:
+No matter how you jump, you will land on index 3.
+Stone 3 has 0, so you cannot move further. The last stone is unreachable.
+
+```
+#### Constraints
+```
+1 ≤ stones.length ≤ 10^4
+0 ≤ stones[i] ≤ 10^5
+```
+
+#### Reference
+```
+ https://www.geeksforgeeks.org/jump-game/  
+ https://www.programiz.com/dsa/jump-game
+```
+## December 04 - Target Subarray Finder
 
 #### Problem Statement
 
 ```
-You are designing a program to help a gardener plan how to grow a special type of plant. The plants
-grow in an interesting pattern:
-• It takes 2 months for the plant to before it starts increasing in numbers.
-• Starting from the third month, the number of plants in a month is the sum of the plants in the
-previous two months.
-For example, in the third month, there are 2 plants (1 + 1), in the fourth month, there are 3 plants (1 +
-2), and so on.
+You are given a collection of numbers and a target value. Your task is to find a contiguous segment of numbers in the collection whose sum equals the target.
+
+- If such a segment exists, report the starting and ending indices (0-based) of any one segment.
+- If no such segment exists, report -1 -1.
 ```
 
-![image](https://github.com/user-attachments/assets/4810c82d-5cc3-4ab8-a247-64d8d8133e44)
-
+#### Input Format:
 ```
-However, the gardener needs your help to write a program that predicts the number of plants for
-any given number of months, n. Here's the catch:
-• The gardener's old computer struggles to handle repeated function calls. As a result, you
-cannot use recursion to solve this problem.
+Two integers, N (number of elements) and K (target sum).
+N space-separated integers — the elements of the array.
 ```
 
-Example 1:
-
-```
-Input: No of Months: 10
-Output: 55
+#### Output Format:
+Two integers — the starting and ending indices of a subarray whose sum is K, or -1 -1 if no such subarray exists.
 ```
 
-Explanation:
-
 ```
-We apply Fibonacci sequence here. Since the growth of the plant perfectly mirrors with Fibonacci
-algorithm, as the gardener's computer is old, we have to use for loops and if statements to generate
-the sequence.
+#### Sample Input 1:
+7 15
+1 2 3 7 5 1 2
+
+#### Sample Output 1:
+2 4
+
+#### Sample Input 2:
+```
+5 100
+10 20 30 40 50
+```
+#### Sample Output 2:
+```
+-1 -1
 ```
 
-Example 2:
-
+#### Explanation:
 ```
-Input: No of Months: 12
-Output: 144
+The subarray [3, 7, 5] (indices 2 to 4) sums to 15.
 ```
 
-### December 05 - Josephus Problem
+#### Constraints:
+```
+1 ≤ N ≤ 10^5
+-10^9 ≤ array elements ≤ 10^9
+-10^9 ≤ K ≤ 10^9
+```
+
+#### Reference
+```
+https://www.geeksforgeeks.org/find-subarray-with-given-sum/
+```
+
+## December 05 - Island Counter
 
 #### Problem Statement
 
 ```
-A total of n people are standing in a circle, and you are one of them playing a game.
-Starting from a person, k persons will be counted in order along the circle, and the kth person will be killed.
-Then the next k persons will be counted along the circle, and again the kth person will be killed. This cycle will
-continue until only a single person is left in the circle.
-If there are 5 people in the circle in the order A, B, C, D, and E, you will choose k=3. Starting from A, you will
-count A, B and C. C will be the 3rd person and will be killed. Then you will continue counting from D, E and
-then A. A will be third person and will be killed.
+You are exploring a map represented as a 2D grid, where:
+- 1 represents land
+- 0 represents water
+
+An island is a group of connected lands (horizontally or vertically). Your task is to count how many islands exist on the map.
 ```
 
-![image](https://github.com/user-attachments/assets/5925562d-fc20-48b7-9114-016a0f2819e0)
-
+#### Input Format:
 ```
-You will be given an array where the first element is the first person from whom the counting will start and
-the subsequent order of the people. You want to be the last one standing. Determine the index at which you
-should stand to survive the game. Return an integer denoting safe position.
+Two integers R (rows) and C (columns).
+Next R lines: each line contains C integers (0 or 1) representing the map.
 ```
 
-Example 1:
-
+#### Output Format:
 ```
-Input: n = 3, k = 2
-Output: 3
+A single integer — the number of islands in the grid.
 ```
 
-Explanation:
+
+#### Sample Input 1:
+```
+4 5
+1 1 0 0 0
+1 1 0 0 1
+0 0 0 1 1
+0 0 0 0 0
+```
+#### Sample Output 1:
+```
+2
+```
+#### Sample Input 2:
+```
+3 3
+1 0 1
+0 1 0
+1 0 1
+```
+
+#### Sample Output 2:
 
 ```
-There are 3 persons so skipping 1 person i.e 1st person 2nd person will be killed. Thus the safe
-position is 3.
+5
+```
+#### Explanation:
+```
+Each connected group of 1's horizontally or vertically counts as an island.
+```
+#### Constraints:
+```
+1 ≤ R, C ≤ 300
+Each cell is either 0 or 1
 ```
 
-Example 2:
-
+#### Reference
 ```
-Input: n = 5, k = 3
-Output: 4
-```
-
-Explanation:
-
-```
-There are 5 persons so skipping 2 person i.e 3rd person will be killed. Thus the safe position is 4.
+ https://www.geeksforgeeks.org/find-number-of-islands/
 ```
 ### December 06 - Target Pair Finder
 
