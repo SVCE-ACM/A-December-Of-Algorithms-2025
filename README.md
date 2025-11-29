@@ -2,7 +2,7 @@
 
 <div align="left">
 <h1>
-    <p align="center"><img alt="header" src="https://github.com/user-attachments/assets/da6f80f2-06db-4578-9833-f635b85e3da6" width="500"></img></p>
+    <p align="center"><img alt="header" src="https://github.com/user-attachments/assets/ef5563b7-51a9-4308-8faa-c4bf59b6141e" width="500"></img></p>
 
 </h1>
 Welcome to A December of Algorithms 2025.
