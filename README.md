@@ -60,7 +60,7 @@ Check out our FAQ for more information.
 
 ## Algorithms
 
-## December 01 – Perfect Squares Counter
+## December 01 - Perfect Squares Counter
 
 ### Problem Statement
 ```
