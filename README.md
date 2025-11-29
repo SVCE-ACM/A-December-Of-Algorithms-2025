@@ -728,7 +728,7 @@ Enter node values: 1 2 3 4 5
 ```
 1 5 2 4 3
 ```
-# Constraints:
+### Constraints:
 ```
 1 ≤ N ≤ 100000
 Node values can be any integer.
