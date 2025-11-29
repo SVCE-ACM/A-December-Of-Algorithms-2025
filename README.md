@@ -291,10 +291,10 @@ Stone 3 has 0, so you cannot move further. The last stone is unreachable.
 ```
 
 #### Reference
-```
+
  https://www.geeksforgeeks.org/jump-game/  
  https://www.programiz.com/dsa/jump-game
-```
+
 ## December 04 - Target Subarray Finder
 
 #### Problem Statement
@@ -313,17 +313,18 @@ N space-separated integers — the elements of the array.
 ```
 
 #### Output Format:
+```
 Two integers — the starting and ending indices of a subarray whose sum is K, or -1 -1 if no such subarray exists.
 ```
-
-```
 #### Sample Input 1:
+```
 7 15
 1 2 3 7 5 1 2
-
+```
 #### Sample Output 1:
+```
 2 4
-
+```
 #### Sample Input 2:
 ```
 5 100
@@ -347,9 +348,8 @@ The subarray [3, 7, 5] (indices 2 to 4) sums to 15.
 ```
 
 #### Reference
-```
+
 https://www.geeksforgeeks.org/find-subarray-with-given-sum/
-```
 
 ## December 05 - Island Counter
 
@@ -411,1249 +411,2043 @@ Each cell is either 0 or 1
 ```
 
 #### Reference
-```
+
  https://www.geeksforgeeks.org/find-number-of-islands/
-```
-### December 06 - Target Pair Finder
+
+## December 06 - Magic Square of Odd Order
 
 #### Problem Statement
+
 ```
-From the initialised list of integers and a target sum by the user,
-find all unique pairs of numbers from the list that add up to the target.
-You can use nested loops and conditionals.
+You are given a positive odd integer n (1, 3, 5, 7, …). Your task is to generate a magic
+square of order n × n.
+
+A magic square is a grid filled with numbers from 1 to n² such that:
+- Every row,
+- Every column, and
+- Both main diagonals
+have the same sum, known as the magic constant (M).
+
+The magic constant for an odd-order magic square is:
+M = (n(n² + 1)) / 2
+
+If the user enters an even value for n, the program should output:
+"Magic square is only possible for odd values of n."
+```
+### Input Format:
+```
+Enter the value of n (order of the magic square): An odd integer.
+If n is odd, compute M and construct the magic square.
+If n is even, display the error message.
+```
+### Output Format:
+```
+If n is even:
+Magic square is only possible for odd values of n.
+
+If n is odd:
+Magic constant: M
+<n × n magic square grid>
+```
+### Sample Input 1:
+```
+Enter n: 5
+```
+### Sample Output 1:
+```
+Magic constant: 65
+9   3  22  16  15
+2  21  20  14   8
+25 19  13   7   1
+18 12   6   5  24
+11 10   4  23  17
+```
+### Sample Input 2:
+```
+Enter n: 6
+```
+### Sample Output 2:
+```
+Magic square is only possible for odd values of n.
 ```
 
+### Constraints:
+1 ≤ n ≤ 99
+n must be odd to generate a magic square
 
-Sample I/O 1:
+
+#### Explanation
+
 ```
-INPUT: 1) A list of integers: numbers = [2, 4, 3, 7, 1, 5].
-              2) A target sum: target = 6.
-OUTPUT:  Unique pairs are [(2, 4), (1, 5)]
+A magic square of odd order is constructed using the Siamese method:
+- Start from the middle of the top row.
+- Place numbers 1 to n², moving up-right each time.
+- If the cell is occupied or goes out of bounds, move down one cell instead.
 ```
-Sample I/O 2:
-```
-INPUT:  1) A list of integers: numbers = [10, 15, 3, 7, 8, 12, 5].
-              2)  A target sum: target = 20.
-OUTPUT: Unique pairs are [(10, 10), (8, 12), (15, 5)]
-Explanation:
-The Target Pair Finder problem is about finding pairs of numbers in a list that add up to a specific target value. From the above example we can see that (10, 10): The first 10 and the second 10 in the list add up to 20, so thereby find all sets of unique pair from the given list summing up to the target value.
-```
-### December 07 - The Magical Tower
+
+#### Reference
+
+* [https://www.geeksforgeeks.org/magic-square/](https://www.geeksforgeeks.org/magic-square/)
+* [https://www.programiz.com/python-programming/examples/magic-square](https://www.programiz.com/python-programming/examples/magic-square)
+
+## December 07 - Baseball Score Record Keeper
 
 #### Problem Statement
-```
-You are tasked with designing a Magical Tower for a kingdom. The tower has multiple floors, and each floor is supported by a triangular arrangement of magical stones called the Pascal Stones. These stones have unique properties:
 
-The stones at the edges of the triangle are always marked as 1.
-The inner stones on each floor are infused with power equal to the sum of the two stones directly above them from the previous floor.
-The first floor of the tower contains only a single stone ([1]), and subsequent floors are built according to the rules above. The kingdom's wizard has asked you to construct the first N floors of the Magical Tower.
+```
+You are keeping track of scores in a baseball game using unusual rules. You begin with an
+empty score record. A series of operations modify this record:
 
-Your task: Write a program that generates the arrangement of stones for the first N floors of the tower.
-```
+- A number x → add this score to the record.
+- "+" → add a score equal to the sum of the previous two scores.
+- "D" → add a score equal to double the previous score.
+- "C" → remove the previous score.
 
-![PascalTriangleAnimated2](https://github.com/user-attachments/assets/c7be7eab-bd66-4947-93be-e7874f2670d3)
-
-Sample I/O 1:
+After all operations are applied, compute the total sum of the final record.
 ```
-INPUT: numRows=5
-OUTPUT:  [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+### Input Format:
 ```
-Explanation:
+An array of strings 'operations', where each element is "C", "D", "+", or an integer string.
 ```
-The first 5 floors of the Magical Tower are constructed as follows:
-Floor 1: [1]
-Floor 2: [1, 1]
-Floor 3: [1, 2, 1] → The second stone (2) is created by adding the two stones directly above it (1 + 1).
-Floor 4: [1, 3, 3, 1] → The second stone (3) is created by adding 1 + 2, and the third stone (3) is created by adding 2 + 1.
-Floor 5: [1, 4, 6, 4, 1] → The second stone (4) is created by adding 1 + 3, the third stone (6) by adding 3 + 3, and the fourth stone (4) by adding 3 + 1.
-Each floor is constructed based on the magical rule that the value of each inner stone is the sum of the two stones directly above it.
+### Output Format:
 ```
-Sample I/O 2:
-```
-INPUT:  numRows=1
-OUTPUT: [1]
-```
-### December 08 - Digit Manipulation
-
-#### Problem Statement
-```
-Write a program to calculate the Digit Square Sum for all numbers from 1 to a given positive integer
-N.
-The Digit Square Sum of a number is calculated by squaring each digit of the number and then
-summing up the squares.
-```
-```
-Your task is to write a function that:
-1. Takes an integer N as input.
-2. Computes the Digit Square Sum for each number from 1 to N.
-3. Returns the total sum of these values.
+A single integer — the total sum of scores after all operations.
 ```
 
-Example 1:
+### Example 1:
+
 ```
-For N = 12, the program calculates the following:
-- 1 -> 1^2 = 1
-- 2 -> 2^2 = 4
-- 3 -> 3^2 = 9
-- ...
-- 12 -> 1^2 + 2^2 = 1 + 4 = 5
-```
-```
-The total sum is 1 + 4 + 9 + 16 + 25 + 36 + 49 + 64 + 81 + 1 + 2 + 5 = 293.
+Input:
+ops = ["5","2","C","D","+"]
+
 Output:
-The program should return the total Digit Square Sum.
+30
 ```
 
+### Example 2:
 
-### December 09 - Customer Return Frequency
+```
+Input:
+ops = ["5","-2","4","C","D","9","+","+"]
+
+Output:
+27
+```
+
+#### Constraints
+
+```
+1 ≤ operations.length ≤ 1000
+Each operation is "C", "D", "+", or an integer string in [-30000, 30000]
+"+" always has at least two previous scores
+"C" and "D" always have at least one previous score
+```
+
+#### Explanation
+
+```
+The operations modify the score list step by step, and finally the sum of
+all valid scores is computed.
+```
+
+#### Reference
+
+* [https://leetcode.com/problems/baseball-game/](https://leetcode.com/problems/baseball-game/)
+* [https://www.geeksforgeeks.org/stack-in-python/](https://www.geeksforgeeks.org/stack-in-python/)
+* [https://www.programiz.com/python-programming/list](https://www.programiz.com/python-programming/list)
+
+---
+
+### December 08 - Cafeteria Queue Challenge
 
 #### Problem Statement
 
 ```
-You are managing an e-commerce platform and you have a list of customer return
-frequencies (how many times a customer has returned products). Your task is to find the total number of
-customers who have returned products exactly once.
+In a school cafeteria, students wait in a queue and sandwiches are stacked on a counter.
+Each student prefers either circular (0) or square (1) sandwiches.
+
+Rules:
+- The student at the front checks the top sandwich.
+- If they like it, they take it and leave.
+- If not, they move to the end of the queue.
+- The process stops when no student wants the top sandwich.
+
+Your task is to determine how many students cannot eat.
 ```
-
-
-Example 1:
 
 ```
 Input Format:
-returns = [2, 1, 5, 1, 0, 3, 1, 4, 1]
-Result: 4
+students — array representing preferences (0 or 1)
+sandwiches — array representing sandwich stack (0 or 1), index 0 is the top
+```
+### Output Format:
+```
+A single integer — number of students who cannot eat.
 ```
 
-```
-Explanation:
-The list returns = [2, 1, 5, 1, 0, 3, 1, 4, 1] represents the return frequency of each customer.
- We are looking for customers who have returned products exactly once, so we need to count how
-many times 1 appears in the list.
-```
+### Example 1:
 
-Example 2:
-
-```
-Input Format:
-returns = [4, 3, 7, 2, 1, 0, 2, 1, 3]
-Result: 2
-```
-### December 10 - Concurrent Task Execution
-#### Problem Statement
-```
-You are given a list of tasks, where each task has a unique identifier and a list of dependencies (other
-tasks that must be completed before this task can be executed). Your goal is to determine a valid
-order to execute the tasks using concurrency wherever possible.
-You must account for the dependencies and ensure no task runs before its dependencies are
-completed. If no valid execution order exists (i.e., there is a cyclic dependency), return an error
-message.
 ```
 Input:
-```
-• A list of tasks, where each task is represented as a pair (task_id, dependencies).
-o task_id is a unique identifier for the task (e.g., an integer or string).
-o dependencies is a list of task IDs that must be completed before the given task can
-run.
-```
+students = [1,1,0,0]
+sandwiches = [0,1,0,1]
+
 Output:
-```
-If a valid task execution order exists, return a list of lists, where each sublist contains the task
-IDs that can be executed concurrently at that step.
-• If no valid order exists (i.e., a circular dependency is found), return the message "Error: Cyclic
-dependency detected".
+0
 ```
 
-![image](https://github.com/user-attachments/assets/e848e914-4128-457a-be5b-6f64699b86df)
+### Example 2:
 
-Sample 1:
 ```
 Input:
-tasks = [
- ("A", []),
- ("B", ["A"]),
- ("C", ["A"]),
- ("D", ["B", "C"]),
- ("E", ["D"])
-]
-```
-```
+students = [1,1,1,0,0,1]
+sandwiches = [1,0,0,0,1,1]
+
 Output:
-[["A"], ["B", "C"], ["D"], ["E"]]
-```
-Explanation:
-```
-• "A" has no dependencies, so it runs first.
-• "B" and "C" both depend only on "A", so they can run concurrently.
-• "D" depends on both "B" and "C", so it runs after them.
-• "E" depends on "D", so it runs last
-```
-Sample 2:
-```
-Input:
-tasks = [
- ("A", ["B"]),
- ("B", ["A"])
-]
-```
-```
-Output:
-"Error: Cyclic dependency detected"
-```
-
-Explanation:
-```
-• "A" depends on "B" and "B" depends on "A", creating a cycle.
-```
-
-### December 11 - The Robot Returns
-#### Problem Statement
-```
-There is a robot starting at the position (0, 0), the origin, on a 2D plane. Given a
-sequence of its moves, judge if this robot ends up at (0, 0) after it completes its moves.
-You are given a string moves that represents the move sequence of the robot where moves[i] represents
-its i
-th move. Valid moves are 'R' (right), 'L' (left), 'U' (up), and 'D' (down).
-Return true if the robot returns to the origin after it finishes all of its moves, or false otherwise.
-```
-```
-Note: The way that the robot is "facing" is irrelevant. 'R' will always make the robot move to the right
-once, 'L' will always make it move left, etc. Also, assume that the magnitude of the robot's movement is the
-same for each move.
-```
-![image](https://github.com/user-attachments/assets/d6399796-727c-417b-9f6c-c68a4bc21743)
-
-Sample 1:
-```
-Input: moves = "UD"
-Output: true
-Explanation: The robot moves up once, and then down once. All moves have the same magnitude, so it
-ended up at the origin where it started. Therefore, we return true.
-```
-Sample 2:
-```
-Input: moves = "LL"
-Output: false
-Explanation: The robot moves left twice. It ends up two "moves" to the left of the origin. We return false
-because it is not at the origin at the end of its moves.
-```
-Reference: For more information on topological sorting and dependency resolution, check out this guide on https://www.geeksforgeeks.org/topological-sorting/
-
-
-### December 12 - Smart Ticketing System
-#### Problem Statement
-```
-You are tasked with designing a Smart Ticketing System for a popular concert. The system
-manages ticket requests using a queue data structure but with additional complexity:
-1. Priority Handling:
-Some customers are marked as VIPs (designated by a VIP tag in their request). VIP
-customers have higher priority and are served before regular customers, regardless of
-their position in the queue. However, among VIPs or regular customers, the requests are
-handled in the order they are received (FIFO).
-2. Dynamic Ticket Allocation:
-Each request includes the number of tickets the customer wants. If the requested tickets
-exceed the remaining tickets, the system will allocate all remaining tickets to the
-customer.
-3. Queue Operation:
-If a customer receives fewer tickets than requested due to limited availability, the request
-is still considered processed, and the next customer in the queue is served.
-You must implement a program that processes these ticket requests and returns the result of
-each transaction.
-```
-Contraints:
-```
-1. 2. 3. The system starts with N tickets available.
-Each request is represented as a string in the format "CustomerName
-NumberOfTickets [VIP]"
-If [VIP] is not present, the customer is treated as a regular customer.
-Requests are processed until all tickets are sold out or the queue is empty
-```
-Sample 1:
-```
-Input:
-N = 5
-requests = ["John 2 VIP" ,"Alice 3", "Bob 2" , "Charlie 1 VIP"]
-Output:
-["John purchased 2 tickets", "Charlie purchased 1 tickets"
-, "Alice purchased 2 tickets", Bob was not served"]
-Explanation:
-"John 2 VIP" is served first because he is a VIP.
-"Charlie 1 VIP" is served next, as he is also a VIP.
-"Alice 3" is served, but only 2 tickets are left, so she gets 2.
-"Bob 2" cannot be served as there are no tickets remaining.
-```
-Sample 2:
-```
-Input:
-N = 10
-requests = ["Eve 4","Diana 3 VIP","Adam 5","Frank 6 VIP"]
-Output:
-["Diana purchased 3 tickets","Frank purchased 6 tickets","Eve purchased tickets", "Adam was not served"]
-```
-### December 13 - Minimum Swap Sorting Problem
-#### Problem Statement
-```
-John has a list of unique integers that he wants to sort in ascending order.
-However, he can only sort the list by swapping two elements at a time.
-The "cost" of each swap is 1 unit.
-Your task is to determine the minimum cost
-(i.e., the minimum number of swaps required) to sort the list.
-```
-Example 1:
-```
-Sample Input 1:
-5
-4 3 1 2 5
-Sample Output 1:
 3
 ```
-Explanation:
+
+#### Constraints
+
 ```
-The given list is [4, 3, 1, 2, 5].
-Swap 4 and 1: [1, 3, 4, 2, 5]
-Swap 3 and 2: [1, 2, 4, 3, 5]
-Swap 4 and 3: [1, 2, 3, 4, 5]
-Total swaps = 3. Hence, the minimum cost is 3.
+1 ≤ students.length, sandwiches.length ≤ 100
+students.length == sandwiches.length
+students[i] ∈ {0,1}
+sandwiches[i] ∈ {0,1}
 ```
-Example 2:
+
+#### Explanation
+
 ```
-Sample Input 2:
+Students continue rotating in the queue until no one wants the top sandwich.
+The remaining students are counted as unable to eat.
+```
+
+#### Reference
+
+* [https://leetcode.com/problems/number-of-students-unable-to-eat-lunch/](https://leetcode.com/problems/number-of-students-unable-to-eat-lunch/)
+* [https://www.programiz.com/python-programming/queue](https://www.programiz.com/python-programming/queue)
+* [https://www.geeksforgeeks.org/queue-data-structure/](https://www.geeksforgeeks.org/queue-data-structure/)
+
+
+### December 09 - Sum of Unique Elements
+
+#### Problem Statement
+
+```
+You are given an array of integers. Your task is to find the sum of all elements
+that appear exactly once in the array.
+
+If no element is unique, the sum should be 0.
+```
+### Input Format:
+```
+- First line: an integer N (size of the array)
+- Second line: N space-separated integers
+```
+### Output Format:
+```
+A single integer — the sum of all elements that appear exactly once.
+```
+### Sample Input 1:
+```
+6
+1 2 2 3 4 4
+```
+### Sample Output 1:
+```
 4
-2 3 4 1
-Sample Output 2:
-3
 ```
+### Sample Input 2:
 ```
-Input Format:
-The first line contains an integer, N, the total number of integers in the list.
-The second line contains N space-separated integers representing the list.
-Output Format:
-An integer representing the minimum cost (number of swaps) required to sort the list.
+5
+5 5 5 5 5
 ```
-References: This problem is inspired by sorting algorithms and cycle detection in graphs.
-
-### December 14 - Split the Squad
-#### Problem Statement
+### Sample Output 2:
 ```
-Alice has N students in his class, numbered 1 through N. Each student has
-expertise in a subject numbered Ai
-
-. Alice has to divide the students into two
-
-teams Team 1 and Team 2, such that:
-1. Each student belongs to exactly one team.
-
-2. The uniqueness of each team is exactly K.
-
-3. Additionally, the difference in the number of students between the two teams
-must not exceed D.
+0
 ```
-```
-The uniqueness of a team is defined as the number of distinct subjects such that
-there is at least one student in the team with expertise in the subject. For
-example, the uniqueness of a team denoted by A = [1, 3, 1, 4, 4] is 3.
-Alice wants to know if it is possible to distribute the students into two teams
-satisfying the conditions.
-```
-```
-Input format
-The first line contains an integer T, the number of test cases.
-For each test case:
-The first line contains three integers N, K, and D.
-The second line contains N integers A1
-,A2
-,....,An
-```
-```
-Output format
-For each test case, print YES if Alice is able to make two teams satisfying the
-given conditions, otherwise print NO.
-```
-```
-Constraints
-
-1 ≤ T ≤ 105
-2 ≤N ≤ 105
-1 ≤ K ≤ N
-1 ≤ D ≤ N
-1 ≤ Ai ≤ N
-```
-![image](https://github.com/user-attachments/assets/3111d8a4-a02d-4804-b7e4-f2257d631abe)
-
-```
-Explanation
-Test Case 1:
-Divide students into Team 1 = [1, 2, 2] and Team 2 = [3, 4, 4]. Both teams have
-a uniqueness of 2, and the difference in the number of students is 0 (≤ 2).
-Output is YES.
-
-Test Case 2:
-No way to divide the students into two teams with both having a uniqueness of
-3 while keeping the size difference ≤ 1.
-Output is NO.
-```
-
-References
-https://www.geeksforgeeks.org/greedy-algorithms
-https://www.geeksforgeeks.org/hashing-data-structure
-
-
-
-### December 15 - Holiday Gift Arrangement
-#### Problem Statement
-```
-It’s December, and Santa is preparing to deliver gifts. He has N houses to visit,
-each requiring a certain number of gifts. Santa’s sleigh can carry a maximum of W gifts at a time.
-You are given:
-	•	An array houses[] where each element represents the number of gifts required at a house.
-	•	The maximum carrying capacity W of Santa’s sleigh.
-Santa needs to minimize the number of trips required to deliver all the gifts.
-Each trip can serve one or more consecutive houses as long as the total number of gifts does not exceed W.
-Write a function minTrips(houses, W) that returns the minimum number of trips Santa needs to deliver the gifts
-Here is an artistic depiction of Santa Claus preparing for his December gift deliveries.
-It captures the festive and cheerful atmosphere with snow-covered houses and a sleigh loaded with gifts.
-```
-Example:
-```
-Input:
-houses = [2, 3, 5, 2, 1]
-W = 6
-Output:
-3
-Explanation:
-	•	Trip 1: Deliver to house 1 and 2 (2 + 3 gifts = 5 ≤ 6).
-	•	Trip 2: Deliver to house 3 (5 gifts = 5 ≤ 6).
-	•	Trip 3: Deliver to house 4 and 5 (2 + 1 gifts = 3 ≤ 6).
-
-```
-Hints:
-```
-Use a greedy approach to group consecutive houses.
-```
-
-### December 16 - Train Platform Calculation
-#### Problem Statement
-```
-We are tasked with determining the minimum number of platforms required at a railway station so that no
-train has to wait for another train to depart. Given the arrival times and departure times of multiple trains,
-the solution must compute how many platforms are required at the station to handle all trains without delay.
- The input consists of two arrays: arrivals and departures. Each element in arrivals represents the
-arrival time of a train, and the corresponding element in departures represents its departure time.
- The goal is to calculate the minimum number of platforms required to ensure that no two trains are
-waiting at the same time.
-```
-```
-Constraints
-1. Times are represented in 24-hour format (e.g., 9:00 AM = 900, 11:45 PM = 2345).
-2. Arrival and departure times are sorted or unsorted but paired correctly for each train.
-3. At any point, the number of overlapping intervals (trains at the station) determines the platform
-requirement.
-```
-![image](https://github.com/user-attachments/assets/834a96fa-24d3-45ab-8ef2-cfeb44639432)
-
-Example 1:
-```
-Input: arrivals = [900, 940, 950, 1100, 1500, 1800]
-departures = [910, 1200, 1120, 1130, 1900, 2000]
-Output 1: Minimum platforms required: 1
-```
-
-Explanation
-```
-Input Format
-Two Arrays:
-
-1. arrivals: Contains the arrival times of trains in 24-hour format (e.g., 9:00 AM = 900, 11:45
-PM = 2345).
-2. departures: Contains the corresponding departure times of the same trains in 24-hour format.
-
-One-to-One Mapping:
-1. Each element in arrivals corresponds to the same index in departures. For example:
-2. arrivals[0] is the arrival time of Train 1.
-
-3. departures[0] is the departure time of Train 1.
-Time Constraints:
-
-1. Arrival time is always less than or equal to the departure time for each train.
-2. The arrays can be unsorted but must have the same length.
-Sample Input:
-arrivals = [900, 940, 950, 1100, 1500, 1800] departures = [910, 1200, 1120, 1130, 1900, 2000]
- Train 1: Arrives at 900, departs at 910.
- Train 2: Arrives at 940, departs at 1200.
- Train 3: Arrives at 950, departs at 1120, and so on.
-```
-Example 2:
-```
-Input: arrivals = [1030, 1015, 1045, 1100, 1500, 1530]
-departures = [1040, 1105, 1050, 1130, 1515, 1600]
-Ouput: Minimum platforms required: 2
-```
-### December 17 - Cybersecurity Alert Management
-#### Problem Statement
-```
-A cybersecurity company monitors network traffic to detect malicious activities.
-The system uses a hash table to store and manage incoming alerts based on their unique threat IDs.
-Each alert has associated metadata, including timestamp, IP address, and threat level.
-The challenge lies in handling the following constraints efficiently:
-High Throughput: The system must process millions of alerts per second, ensuring minimal latency in storing and retrieving threat IDs.
-Duplicate Alerts: If the same threat ID is received multiple times within 30 seconds, only the first instance should be stored, and subsequent duplicates should be ignored.
-Eviction Policy: Alerts older than 5 minutes must be removed automatically to free up memory.
-Priority Updates: If an alert is updated with a higher threat level, the hash table must reflect the latest information without affecting performance.
-Memory Optimization: Due to limited memory, the system must handle collisions effectively while maintaining a low memory footprint.
-The task is to design the alert management system using a hash table to ensure high efficiency, scalability, and accuracy under the given constraints.
+### Explanation:
 ```
 Sample 1:
-```
-Input:
-Incoming alerts:
-[  {"id": "A123", "timestamp": "00:00:10", "threat_level": 3},  {"id": "A123", "timestamp": "00:00:15", "threat_level": 3},  {"id": "B456", "timestamp": "00:00:20", "threat_level": 2},  {"id": "A123", "timestamp": "00:00:30", "threat_level": 5},  {"id": "B456", "timestamp": "00:05:05", "threat_level": 2}]
-Output:
-Stored alerts:
-[  {"id": "A123", "timestamp": "00:00:30", "threat_level": 5},  {"id": "B456", "timestamp": "00:05:05", "threat_level": 2}]
-Explanation:
-The duplicate alert for A123 within 30 seconds (00:00:15) is ignored.
-The priority of A123 is updated to level 5 (00:00:30).
-Alerts older than 5 minutes are removed (e.g., B456 at 00:00:20).
-```
+Unique elements = 1 and 3
+Sum = 1 + 3 = 4
 Sample 2:
+No element appears exactly once → output = 0
 ```
-Input:
-Incoming alerts :
-[  {"id": "X001", "timestamp": "12:00:00", "threat_level": 1},  {"id": "Y002", "timestamp": "12:02:30", "threat_level": 3},  {"id": "X001", "timestamp": "12:02:45", "threat_level": 2},  {"id": "Z003", "timestamp": "12:07:00", "threat_level": 4}]
-Output:
-Stored alerts:
-[  {"id": "Y002", "timestamp": "12:02:30", "threat_level": 3},  {"id": "X001", "timestamp": "12:02:45", "threat_level": 2},  {"id": "Z003", "timestamp": "12:07:00", "threat_level": 4}]
+### Constraints:
+```
+1 ≤ N ≤ 100000
+-10^9 ≤ array elements ≤ 10^9
 ```
 
-### December 18 - Howard's Rare Gems
+#### Explanation
+
+```
+Use a frequency map / dictionary to count occurrences of each number.
+Sum only the numbers whose frequency is exactly 1.
+```
+
+#### Reference
+- GeeksforGeeks – Frequency counting using hashmap:
+  https://www.geeksforgeeks.org/frequency-of-array-elements/
+
+## December 10 - Zig-Zag Linked List
+
 #### Problem Statement
-```
-Howard, a charismatic yet reckless gem dealer, specializes in acquiring rare and exotic gemstones to make huge profits. He thrives on risky deals and has a knack for identifying high-value chains of diamonds, rubies, and emeralds.
-
-Howard knows he can maximize his earnings if he finds chains with a palindromic arrangement of gemstones, as these rare patterns fetch a significantly higher price.
-
-The prices of individual gems are as follows:
-- A diamond (D) is worth $500.
-- A ruby (R) is worth $250.
-- An emerald (E) is worth $100.
-
-For palindromic chains, the total price is multiplied by the chain's length, adding a massive bonus to the profit. Given a long chain of mixed gemstones, Howard must determine the maximum profit he can achieve by cutting out the most valuable palindromic chain.
 
 ```
-Example 1:
+You are given a linked list representing a train of carriages. The goal is to reorder
+the list in a zig-zag pattern:
+
+Original:
+L0 → L1 → L2 → … → Ln-1 → Ln
+
+Reordered:
+L0 → Ln → L1 → Ln-1 → L2 → Ln-2 → …
+
+You are allowed to change only the node pointers, not the node values.
 ```
-Chain: "RDEREDRRRD"
-Output: $7,250
-Explanation: The longest palindromic chain is "RDEREDR", worth $(250 + 500 + 100 + 100 + 500 + 250 + 250) \times 7 = 7,250.
+### Input Format:
+```
+- An integer N (number of nodes)
+- N space-separated integers representing node values
 ```
 
+### Output Format:
+```
+Print the reordered linked list values separated by spaces.
+```
+### Sample Input 1:
+```
+Enter N: 4
+Enter node values: 1 2 3 4
+```
+### Sample Output 1:
+```
+1 4 2 3
+```
+### Sample Input 2:
+```
+Enter N: 5
+Enter node values: 1 2 3 4 5
+```
+### Sample Output 2:
+```
+1 5 2 4 3
+```
+# Constraints:
+```
+1 ≤ N ≤ 100000
+Node values can be any integer.
+Only node pointers may be changed.
+```
 
-Example 2:
+#### Explanation
+
 ```
-Chain: "DERRREDERREDEREDR"
-Output: $24,000
-Explanation: The longest palindromic chain is "REDERREDER", worth $(250 + 100 + 500 + 250 + 500 + 250 + 500 + 100 + 250 + 250) \times 10 = 24,000.
+This reordering is done using three steps:
+1. Find the middle of the linked list.
+2. Reverse the second half.
+3. Merge both halves by alternating nodes.
 ```
 
-Hints:
-```
-Use efficient algorithms like Manacher’s Algorithm to identify the longest palindromic substring quickly and calculate the profit.
-```
+#### Reference
 
-### December 19 - Endless Towers
+- GeeksforGeeks – Reorder List (Zig-Zag merge)
+  https://www.geeksforgeeks.org/reorder-list/
+
+### December 11 - Counting Prime Numbers
+
 #### Problem Statement
-```
-The King's Challenge Story:
-
-The king has a treasure of golden disks stacked in ascending order of size on a tower ( disk A).
-He wants to move these disks to another tower (disk C). However, to ensure the safety of his treasure:
-
-1. Only one golden disk can be moved at a time.
-
-
-2. A larger golden disk cannot be placed on top of a smaller disk.
-
-
-3. A third tower (disk B) must be used as an intermediate step.
-
-
-
-The king challenges his wisest advisor to find the minimum number of moves to transfer all the disks to Tower C while following these rules.
-
-The Question:
-
-"If the king had 4 disks, what is the minimum number of moves required to complete the task, and what is the sequence of moves ? “
-Here are two sample inputs and outputs for the Tower of Hanoi problem described as the king's challenge:
-```
-Sample 1:
-```
-Number of golden disks: 3
-Towers: A (start), B (helper), C (destination)
-
-Output:
-Minimum number of moves: 7
-Sequence of moves:
-1. Move disk 1 from A to C
-2. Move disk 2 from A to B
-3. Move disk 1 from C to B
-4. Move disk 3 from A to C
-5. Move disk 1 from B to A
-6. Move disk 2 from B to C
-7. Move disk 1 from A to C
-```
-Explanation:
-```
-Initial Setup:
-
-Start tower (A) contains three disks, stacked in ascending size (smallest on top).
-
-Helper tower (B) is empty and will be used as an intermediate step.
-
-Destination tower (C) is where all disks must end up, following the rules:
-
-1. Only one disk can be moved at a time.
-
-
-2. A larger disk cannot be placed on a smaller disk.
-
-
-3. Use all three towers effectively.
-
-
-Steps and Explanation:
-
-1. Move disk 1 from A to C:
-
-The smallest disk is moved directly to the destination tower.
-
-
-
-2. Move disk 2 from A to B:
-
-The second-smallest disk is moved to the helper tower, as the destination is occupied.
-
-
-
-3. Move disk 1 from C to B:
-
-The smallest disk is moved from the destination tower to the helper tower, stacking it on top of disk 2.
-
-
-
-4. Move disk 3 from A to C:
-
-The largest disk is moved directly to the destination tower.
-
-
-
-5. Move disk 1 from B to A:
-
-The smallest disk is moved back to the start tower, freeing up space on the helper tower.
-
-
-
-6. Move disk 2 from B to C:
-
-The second-smallest disk is moved to the destination tower, stacking it on top of the largest disk.
-
-
-
-7. Move disk 1 from A to C:
-
-Finally, the smallest disk is moved to the destination tower, completing the puzzle.
-
-
-
-Final State:
-
-Tower A: Empty
-
-Tower B: Empty
-
-Tower C: All three disks stacked in ascending size (smallest on top).
-
-
-
-Minimum Moves:
-
-The total number of moves is 7, which matches the formula  for .
-```
-Sample 2:
-```
-Number of disks: 4
-Towers: A (start), B (helper), C (destination)
-
-Output:
-Minimum number of moves: 15
-
-Sequence of moves:
-1. Move disk 1 from A to B
-2. Move disk 2 from A to C
-3. Move disk 1 from B to C
-4. Move disk 3 from A to B
-5. Move disk 1 from C to A
-6. Move disk 2 from C to B
-7. Move disk 1 from A to B
-8. Move disk 4 from A to C
-9. Move disk 1 from B to C
-10. Move disk 2 from B to A
-11. Move disk 1 from C to A
-12. Move disk 3 from B to C
-13. Move disk 1 from A to B
-14. Move disk 2 from A to C
-15. Move disk 1 from B to C
 
 ```
-### December 20 - Robot Pathways Problem
+Given a non-negative integer N, your task is to count how many prime numbers
+exist strictly less than N.
+
+A prime number is a natural number greater than 1 that is divisible only by
+1 and itself.
+```
+
+### Input Format:
+```
+A single integer N.
+```
+### Output Format:
+```
+The count of prime numbers less than N is: <value>
+```
+
+### Sample Input 1:
+```
+Enter N: 10
+```
+### Sample Output 1:
+```
+The count of prime numbers less than 10 is: 4
+```
+
+### Sample Input 2:
+```
+Enter N: 20
+```
+### Sample Output 2:
+```
+The count of prime numbers less than 20 is: 8
+```
+### Constraints:
+```
+0 ≤ N ≤ 1000000
+```
+
+#### Explanation
+
+```
+Use the Sieve of Eratosthenes to efficiently count all primes below N.
+```
+
+#### Reference
+
+
+- GeeksforGeeks – Sieve of Eratosthenes:
+  https://www.geeksforgeeks.org/sieve-of-eratosthenes/
+
+## December 12 - The Missing Positive Element
+
 #### Problem Statement
+
 ```
-You are given an integer array steps[] representing different step sizes a robot can take and an integer distance.
-Find the number of distinct ways the robot can reach the exact distance by taking any combination of the given step sizes.
-Note:
-The robot can take any step size from steps[] as many times as needed.
-Steps can be taken in any order.
+You are given an unsorted list of N integers containing all values from 1 to N
+exactly once, except:
+
+- One number is missing.
+- One number appears twice.
+
+Your task is to find:
+1. The missing positive integer.
+2. The duplicate integer.
+
+The solution must be efficient and use no extra auxiliary space.
 ```
-Sample:
+
+### Input Format:
 ```
-Input:
-steps[] = {1, 2, 3}
-distance = 4
-Output:
+- First line: An integer N (the expected number of elements).
+- Second line: N space-separated integers.
+```
+### Output Format:
+```
+Missing Number: <value>
+Duplicate Number: <value>
+```
+
+### Sample Input 1:
+```
+5
+3 1 2 2 5
+```
+### Sample Output 1:
+```
+Missing Number: 4
+Duplicate Number: 2
+```
+### Sample Input 2:
+```
+4
+4 3 3 1
+```
+### Sample Output 2:
+```
+Missing Number: 2
+Duplicate Number: 3
+```
+### Constraints:
+```
+- Expected Time Complexity: O(N)
+- Expected Space Complexity: O(1)
+- All values are between 1 and N
+```
+
+#### Explanation
+
+```
+This problem can be solved using the Cyclic Sort technique:
+- Each number should ideally be placed at index (number - 1).
+- While rearranging, if a conflict occurs (a number is already in its correct
+  place), that number is the duplicate.
+- The index that never receives its correct number corresponds to the missing value.
+```
+
+#### Reference
+
+- GeeksforGeeks – Cyclic Sort and finding missing/duplicate:
+  https://www.geeksforgeeks.org/find-a-repeating-and-a-missing-number/
+
+
+## December 13 - Mountain Peaks in a Trail
+
+### Problem Statement
+
+```
+You are analyzing a hiking trail represented by an array of integers heights, where
+heights[i] is the elevation at the i-th checkpoint. A mountain peak is defined as a
+point in the trail that is strictly higher than its immediate neighbors.
+
+Rules:
+- The first and last points in the trail cannot be peaks.
+- If there are no peaks, return an empty list.
+```
+
+### Input Format
+
+```
+- An integer N — the number of checkpoints on the trail (3 ≤ N ≤ 10^5)
+- N space-separated integers — the elevations of the checkpoints (1 ≤ heights[i] ≤ 10^6)
+```
+
+### Output Format
+
+```
+- Print the 0-based indices of all mountain peaks in ascending order, separated by spaces.
+- If no peaks exist, print -1.
+```
+
+### Sample Input 1
+
+```
+8
+1 3 2 4 5 3 2 1
+```
+
+### Sample Output 1
+
+```
+1 4
+```
+
+### Sample Input 2
+
+```
+5
+1 2 3 4 5
+```
+
+### Sample Output 2
+
+```
+-1
+```
+
+### Constraints
+
+```
+- 3 ≤ N ≤ 10^5
+- 1 ≤ heights[i] ≤ 10^6
+```
+
+### Explanation
+
+```
+Iterate through the array from index 1 to N-2:
+- For each element, check if it is strictly greater than both neighbors.
+- Collect indices of all such elements.
+
+Expected Complexity:
+- Time: O(N)
+- Space: O(P), where P is the number of peaks
+```
+
+### Reference
+
+* GeeksforGeeks – Find peak element in array: [https://www.geeksforgeeks.org/find-peak-element/](https://www.geeksforgeeks.org/find-peak-element/)
+
+## December 14 - Magical Treasure Chest Parser
+
+### Problem Statement
+
+```
+You are an adventurer exploring a magical treasure chest. The chest contains either
+single treasures (integers) or nested compartments that can themselves contain
+treasures or more compartments.
+
+The chest is described by a string s — a serialized representation of its contents:
+
+- An integer represents a single treasure.
+- Square brackets [ ] represent a compartment, which can contain integers or other compartments.
+
+Your task is to write a parser that reads the string s and returns a structured
+representation of the chest’s contents, preserving the nested structure.
+```
+
+### Input Format
+
+```
+- A single string s representing the serialized treasure chest.
+```
+
+### Output Format
+
+```
+- A structured object (NestedChest) representing the parsed chest:
+  Each element is either an integer treasure or a nested compartment.
+```
+
+### Sample Input 1
+
+```
+"324"
+```
+
+### Sample Output 1
+
+```
+324
+```
+
+### Sample Input 2
+
+```
+"[123,[456,[789]]]"
+```
+
+### Sample Output 2
+
+```
+[123,[456,[789]]]
+```
+
+### Constraints
+
+```
+- 1 ≤ length of s ≤ 50,000
+- s consists of digits, square brackets [ ], negative sign -, and commas ,
+- s is guaranteed to be a valid serialized NestedChest
+- All treasure values are in the range [-10^6, 10^6]
+```
+
+### Explanation
+
+```
+You may use a stack to keep track of nested compartments while parsing:
+
+- When encountering [, create a new compartment.
+- When encountering ], close the current compartment and add it to its parent.
+- Digits and negative signs form integer treasures to be added to the current compartment.
+```
+
+### Reference
+
+* GeeksforGeeks – Deserialize nested list / Nested Integer: [https://www.geeksforgeeks.org/deserialize-nested-integer-array/](https://www.geeksforgeeks.org/deserialize-nested-integer-array/)
+
+## December 15 - Royal Family Seating
+
+### Problem Statement
+
+```
+A kingdom is arranging a royal family hierarchy in levels. Each level represents a
+generation, with ancestors at the top and descendants below. 
+
+The seating arrangement follows these rules:
+
+1. Every generation, except possibly the last, must be completely filled.
+2. In the last generation, all family members must sit as far left as possible.
+
+The family hierarchy is represented as a binary tree, where each node is a family
+member, and the tree’s root is the eldest ancestor.
+
+Your task is to determine whether the seating arrangement forms a complete binary tree.
+```
+
+### Input Format
+
+```
+- The root of a binary tree (TreeNode) representing the royal family hierarchy.
+```
+
+### Output Format
+
+```
+- true if the family tree is complete (all levels except possibly the last are full,
+  and the last level is left-filled).
+- false otherwise.
+```
+
+### Sample Input 1
+
+```
+root = [1,2,3,4,5,6]
+```
+
+### Sample Output 1
+
+```
+true
+```
+
+### Sample Input 2
+
+```
+root = [1,2,3,4,5,null,7]
+```
+
+### Sample Output 2
+
+```
+false
+```
+
+### Constraints
+
+```
+- The number of nodes is in the range [1, 1000]
+- Node values are unique integers
+```
+
+### Explanation
+
+```
+Perform a level-order traversal (BFS):
+
+- Once a null child is seen, all subsequent nodes must also be null.
+- If a non-null node appears after a null, the tree is not complete.
+```
+
+### Reference
+
+* GeeksforGeeks – Check Complete Binary Tree: [https://www.geeksforgeeks.org/check-whether-binary-tree-complete-not-set-2-recursive-solution/](https://www.geeksforgeeks.org/check-whether-binary-tree-complete-not-set-2-recursive-solution/)
+
+## December 16 - Treasure Trail Adjustment
+
+### Problem Statement
+
+```
+You are a treasure hunter following a trail of treasure markers represented as a linked list.
+Each marker contains a treasure value. Sometimes, a marker needs to be removed from the trail 
+to optimize your path.
+
+Your task is to remove the nth marker from the end of the trail and return the updated trail.
+```
+
+### Input Format
+
+```
+- head: the head of a singly linked list representing the trail of treasure markers.
+- n: an integer indicating the position (from the end) of the marker to remove.
+```
+
+### Output Format
+
+```
+- Return the head of the linked list after removing the nth marker from the end.
+```
+
+### Sample Input 1
+
+```
+head = [1,2,3,4,5], n = 2
+```
+
+### Sample Output 1
+
+```
+[1,2,3,5]
+```
+
+### Sample Input 2
+
+```
+head = [1], n = 1
+```
+
+### Sample Output 2
+
+```
+[]
+```
+
+### Sample Input 3
+
+```
+head = [1,2], n = 1
+```
+
+### Sample Output 3
+
+```
+[1]
+```
+
+### Constraints
+
+```
+- The number of markers in the trail is sz, 1 ≤ sz ≤ 30
+- 0 ≤ Node.val ≤ 100
+- 1 ≤ n ≤ sz
+```
+
+### Explanation
+
+```
+After removing the nth marker from the end, the linked list is updated and returned as output.
+```
+
+### Reference
+
+* GeeksforGeeks – Remove N-th Node from End of Linked List: [https://www.geeksforgeeks.org/remove-n-th-node-from-end-of-a-linked-list/](https://www.geeksforgeeks.org/remove-n-th-node-from-end-of-a-linked-list/)
+
+
+## December 17 - Racing Turtles
+
+#### Problem Statement
+
+```
+You are organizing a turtle race along a straight track with n turtles.
+Each turtle has a starting position and a speed. Turtles cannot overtake but can join a slower turtle ahead to form a fleet.
+Compute the total number of distinct turtle fleets that will reach the finish line.
+```
+
+### Input Format
+
+```
+- target: integer, the finish line position
+- n: integer, number of turtles
+- position: array of n integers, starting positions of turtles
+- speed: array of n integers, speeds of turtles
+```
+
+### Output Format
+
+```
+- Print "The number of turtle fleets is: <value>" if one or more fleets reach the finish line.
+- Print "No turtle fleets formed." if n = 0.
+```
+
+### Sample Input 1
+
+```
+target = 10
+n = 1
+position = [3]
+speed = [3]
+```
+
+### Sample Output 1
+
+```
+The number of turtle fleets is: 1
+```
+
+### Sample Input 2
+
+```
+target = 12
+n = 5
+position = [10, 8, 0, 5, 3]
+speed = [2, 4, 1, 1, 3]
+```
+
+### Sample Output 2
+
+```
+The number of turtle fleets is: 3
+```
+
+### Sample Input 3
+
+```
+target = 100
+n = 3
+position = [0, 2, 4]
+speed = [4, 2, 1]
+```
+
+### Sample Output 3
+
+```
+The number of turtle fleets is: 1
+```
+
+### Constraints
+
+```
+- 0 ≤ n ≤ 10^5
+- 0 ≤ position[i] < target ≤ 10^6
+- 1 ≤ speed[i] ≤ 10^6
+```
+
+### Explanation
+
+```
+The problem requires counting how many separate groups of turtles (fleets) arrive at the finish line.
+Turtles can join fleets if they catch up to slower turtles ahead, otherwise they form a new fleet.
+```
+
+## December 18 - Mirror Necklace Check
+
+#### Problem Statement
+
+```
+A jeweler is inspecting a necklace made of beads, where each bead has a number engraved on it. 
+The beads are strung in a single chain, and the jeweler wants to check if the necklace is symmetric — 
+meaning the sequence of numbers reads the same from left to right and from right to left.
+
+A necklace is considered mirrored if the bead numbers form a palindrome. 
+Your task is to determine whether a given necklace is mirrored.
+```
+
+### Input Format
+
+```
+1. An integer N — the number of beads in the necklace.
+2. N space-separated integers — the numbers engraved on each bead, in order from the first to the last bead.
+```
+
+### Output Format
+
+```
+- Print "The necklace is mirrored." if the sequence forms a palindrome.
+- Print "The necklace is not mirrored." if it does not.
+- Print "The necklace is empty." if N = 0.
+```
+
+### Sample Input 1
+
+```
+N = 5
+Beads = 1 2 3 2 1
+```
+
+### Sample Output 1
+
+```
+The necklace is mirrored.
+```
+
+### Sample Input 2
+
+```
+N = 4
+Beads = 10 20 20 30
+```
+
+### Sample Output 2
+
+```
+The necklace is not mirrored.
+```
+
+### Sample Input 3
+
+```
+N = 0
+```
+
+### Sample Output 3
+
+```
+The necklace is empty.
+```
+
+### Explanation
+
+```
+The necklace sequence is checked from both ends:
+- Forward sequence: 1, 2, 3, 2, 1
+- Backward sequence: 1, 2, 3, 2, 1
+- Since the sequences match, the necklace is mirrored.
+```
+
+### Constraints
+
+```
+- 0 ≤ N ≤ 10^5
+- Bead values are integers in the range [-10^6, 10^6]
+```
+
+#### Reference
+
+* GeeksforGeeks – Check if linked list is palindrome: [https://www.geeksforgeeks.org/function-to-check-if-a-singly-linked-list-is-palindrome/](https://www.geeksforgeeks.org/function-to-check-if-a-singly-linked-list-is-palindrome/)
+
+
+## December 19 - Balanced Team Assignment
+
+#### Problem Statement
+
+```
+A company wants to assign employees to two project teams such that the total skill levels of both teams are as balanced as possible.
+
+You are given an array of positive integers skills[], where skills[i] represents the skill level of the i-th employee.
+
+Your task is to divide the employees into two teams such that the absolute difference between the total skill levels of the teams is minimized.
+```
+
+### Input Format
+
+```
+1. An integer N — the number of employees.
+2. N space-separated integers — skills[0], skills[1], ..., skills[N-1].
+```
+
+### Output Format
+
+```
+Print a single integer — the minimum difference between the total skill levels of the two teams.
+```
+
+### Sample Input 1
+
+```
+5
+3 1 4 2 2
+```
+
+### Sample Output 1
+
+```
+0
+```
+
+### Sample Input 2
+
+```
+4
+1 2 3 5
+```
+
+### Sample Output 2
+
+```
+1
+```
+
+### Explanation
+
+```
+The goal is to partition the employees into two teams such that the sum of skills in each team is as close as possible.
+
+For example:
+- Sample 1: Team A = [3,2], Team B = [1,4,2], sums both equal 5 → difference 0.
+- Sample 2: Team A = [1,5], Team B = [2,3], sums 6 and 5 → difference 1.
+```
+
+### Constraints
+
+```
+1 ≤ N ≤ 30
+1 ≤ skills[i] ≤ 100
+```
+
+#### Reference
+
+* GeeksforGeeks – Partition problem (minimum subset sum difference): [https://www.geeksforgeeks.org/partition-a-set-into-two-subsets-such-that-difference-of-subset-sums-is-minimum/](https://www.geeksforgeeks.org/partition-a-set-into-two-subsets-such-that-difference-of-subset-sums-is-minimum/)
+
+
+## December 20 - Tower Visibility Challenge
+
+#### Problem Statement
+
+```
+A city has a row of N towers, each with a certain height. A tower can “see” the next taller tower to its right.
+
+You are given an array heights[] where heights[i] represents the height of the i-th tower.
+
+For each tower, determine the height of the first taller tower to its right. If there is no taller tower to the right, record -1 for that tower.
+```
+
+### Input Format
+
+```
+1. An integer N — the number of towers.
+2. N space-separated integers — heights[0], heights[1], ..., heights[N-1].
+```
+
+### Output Format
+
+```
+Print N integers separated by spaces — the height of the first taller tower to the right for each tower, or -1 if none exists.
+```
+
+### Sample Input 1
+
+```
+6
+4 5 2 25 7 6
+```
+
+### Sample Output 1
+
+```
+5 25 25 -1 -1 -1
+```
+
+### Sample Input 2
+
+```
+5
+13 7 6 12 10
+```
+
+### Sample Output 2
+
+```
+-1 12 12 -1 -1
+```
+
+### Explanation
+
+```
+For each tower, we look for the first taller tower to its right:
+- Tower 0 (height 4) → next taller tower is 5
+- Tower 1 (height 5) → next taller tower is 25
+- Tower 2 (height 2) → next taller tower is 25
+- Tower 3 (height 25) → no taller tower → -1
+- Tower 4 (height 7) → no taller tower → -1
+- Tower 5 (height 6) → no taller tower → -1
+```
+
+### Constraints
+
+```
+1 ≤ N ≤ 10^5
+1 ≤ heights[i] ≤ 10^9
+```
+
+#### Reference
+
+* GeeksforGeeks – Next Greater Element: [https://www.geeksforgeeks.org/next-greater-element/](https://www.geeksforgeeks.org/next-greater-element/)
+
+## December 21 - Efficient Parcel Sorting
+
+#### Problem Statement
+
+```
+A delivery company needs an efficient way to sort parcels by their weights. The sorting machine processes parcels one by one and can perform two operations:
+
+1. Move Front to Back (Rotate): Move the parcel at the front of the queue to the back of the queue.
+2. Pick and Place: Remove the lightest parcel currently in the queue and place it in a sorted output list.
+
+You must simulate the sorting process performed by the machine and display the final sorted list of parcel weights in non-decreasing order. The goal is to use the minimum number of rotations to achieve the sorting, following the exact behavior of the described machine.
+```
+
+### Input Format
+
+```
+- First line: An integer N — the number of parcels.
+- Second line: N space-separated integers — the weights of the parcels.
+```
+
+### Output Format
+
+```
+Print the sorted list of parcel weights after performing the required operations.
+```
+
+### Sample Input 1
+
+```
+5
+4 2 1 5 3
+```
+
+### Sample Output 1
+
+```
+1 2 3 4 5
+```
+
+### Sample Input 2
+
+```
+4
+10 30 20 40
+```
+
+### Sample Output 2
+
+```
+10 20 30 40
+```
+
+### Sample Input 3
+
+```
+6
+6 5 4 3 2 1
+```
+
+### Sample Output 3
+
+```
+1 2 3 4 5 6
+```
+
+### Explanation
+
+```
+The queue simulates selection sort using rotations:
+
+- Always find the lightest parcel in the current queue.
+- Rotate the queue to bring the lightest parcel to the front.
+- Pick the parcel and place it in the sorted output.
+- Repeat until the queue is empty.
+```
+
+### Constraints
+
+```
+1 ≤ N ≤ 10^4
+1 ≤ weight ≤ 10^5
+Expected Time Complexity: O(N²) or better
+Expected Space Complexity: O(N)
+```
+
+#### Reference
+
+* GeeksforGeeks – Queue Data Structure: [https://www.geeksforgeeks.org/queue-data-structure/](https://www.geeksforgeeks.org/queue-data-structure/)
+* GeeksforGeeks – Sorting using selection concept: [https://www.geeksforgeeks.org/selection-sort/](https://www.geeksforgeeks.org/selection-sort/)
+
+## December 22 - AquaNet – Minimum Time to Fill All City Reservoirs
+
+#### Problem Statement
+
+```
+A city’s water network is represented as an undirected graph where each node is a reservoir and each edge is a pipe.
+
+Some reservoirs already contain water at the start. Every minute, water flows from each filled reservoir to all its directly connected neighbors.
+
+You need to find the minimum number of minutes required to fill all reservoirs. If it is impossible to fill every reservoir (some are disconnected), print "-1".
+```
+
+### Input Format
+
+```
+1. Enter the number of reservoirs V and the number of pipes E.
+2. Enter E pairs of integers u v, representing a pipe between reservoirs u and v.
+3. Enter V space-separated integers (0 or 1):
+   - 1 → reservoir initially has water
+   - 0 → reservoir is empty
+```
+
+### Output Format
+
+```
+- Print the minimum number of minutes required to fill all reservoirs.
+- If any reservoir cannot be filled, print -1.
+```
+
+### Sample Input 1
+
+```
+7 6
+0 1
+1 2
+2 3
+3 4
+1 5
+5 6
+1 0 0 0 0 0 0
+```
+
+### Sample Output 1
+
+```
+4
+```
+
+### Sample Input 2
+
+```
+6 4
+0 1
+1 2
+3 4
+4 5
+1 1 0 0 0 0
+```
+
+### Sample Output 2
+
+```
+-1
+```
+
+### Explanation
+
+```
+Water spreads from initially filled reservoirs to their neighbors every minute. 
+The total time is counted until all reservoirs are filled. 
+If some reservoirs are disconnected and cannot be reached, output -1.
+```
+
+### Constraints
+
+```
+1 ≤ V ≤ 10^5
+0 ≤ E ≤ 10^5
+Reservoir indices: 0 to V-1
+Initial water state: 0 or 1
+```
+
+#### Reference
+
+* LeetCode – Rotting Oranges: [https://leetcode.com/problems/rotting-oranges/](https://leetcode.com/problems/rotting-oranges/)
+* LeetCode – 01 Matrix: [https://leetcode.com/problems/01-matrix/](https://leetcode.com/problems/01-matrix/)
+* GeeksforGeeks – Multi-Source BFS: [https://www.geeksforgeeks.org/multi-source-bfs/](https://www.geeksforgeeks.org/multi-source-bfs/)
+
+## December 23 - Shortest Path in a Warehouse Grid
+
+#### Problem Statement
+
+```
+A warehouse is represented as a 2D grid of size m × n. Each cell contains:
+- 0 → Empty path (you can walk)
+- 1 → Obstacle (cannot pass through)
+
+You start at the top-left corner (0,0) and must reach the bottom-right corner (m−1, n−1). 
+You can move UP, DOWN, LEFT, RIGHT (no diagonal moves).
+
+Compute the minimum number of steps required to travel from start to goal without crossing obstacles. 
+If the destination cannot be reached, print -1.
+```
+
+### Input Format
+
+```
+1. First line: two integers m n — number of rows and columns.
+2. Next m lines: each line contains n integers (0 or 1), representing the warehouse grid.
+```
+
+### Output Format
+
+```
+- Print a single integer — the minimum number of steps from (0,0) to (m-1,n-1), or -1 if unreachable.
+```
+
+### Sample Input 1
+
+```
+4 5
+0 0 0 0 0
+1 1 0 1 0
+0 0 0 0 0
+0 1 1 1 0
+```
+
+### Sample Output 1
+
+```
 7
 ```
-Explanation:
-```
-The robot can reach the distance in the following ways:
-(1, 1, 1, 1)
-(1, 1, 2)
-(1, 2, 1)
-(2, 1, 1)
-(2, 2)
-(1, 3)
-(3, 1)
-```
 
-### December 21 - The Intersection
-#### Problem Statement
-
-```
-You are given two singly linked lists that may or may not intersect. Write a program to
-find the value of the node where the two linked lists intersect. If they do not
-intersect, return "No intersection found."
-```
-![image](https://github.com/user-attachments/assets/52c2bf7e-7e2b-4aff-b805-ef4682674b11)
-
-Input Format
-```
-1. Enter the number of nodes in the first linked list N: An integer.
-2. Enter N space-separated node values for the first linked list: The values of the
-nodes.
-3. Enter the number of nodes in the second linked list M: An integer.
-4. Enter M space-separated node values for the second linked list: The values of
-the nodes.
-5. Enter the position (1-indexed) in the first linked list where the second linked
-list intersects (0 if no intersection): An integer.
-```
-Output Format:
-```
-The program should display:
-1. "The intersection point is: <value>" if an intersection exists.
-2. "No intersection found." if the linked lists do not intersect.
-```
-Sample Input 1:
-```
-Enter the number of nodes in the first linked list: 5
-Enter the node values: 1 2 3 4 5
-Enter the number of nodes in the second linked list: 3
-Enter the node values: 6 7 8
-Enter the position of intersection: 3
-```
-Sample Output 1
-```
-The intersection point is: 3
-```
-Sample Input 2:
-```
-Enter the number of nodes in the first linked list: 4
-Enter the node values: 10 20 30 40
-Enter the number of nodes in the second linked list: 3
-Enter the node values: 50 60 70
-Enter the position of intersection: 0
-```
-Sample Output 2:
-```
-No intersection found.
-```
-
-### December 22 - Earthquake Propagation
-#### Problem Statement
-
-```
-You are given a list of buildings in a city, each represented by a 0-indexed 2D integer array buildings[i] = [xi,
-yi, ri]. Here, xi and yi are the coordinates of the building, and ri is the radius of its earthquake shockwave.
-When an earthquake occurs at a building, it will affect all buildings within its radius. The affected buildings
-will further propagate the earthquake shockwave to other buildings within their radius.
-Return the maximum number of buildings that can be affected if you trigger the earthquake at one building.
-```
-![image](https://github.com/user-attachments/assets/18cf62d5-9d59-4e2c-9372-46ec3ffe180d)
-
-Sample I/O 1:
-```
-
-Input: buildings = [[2,1,3],[6,1,4]]
-Output: 2
-Explanation:
-The above figure shows the positions and ranges of the 2
-earthquakes . If an earthquake occurs at the left building, the right
-building will not be affected.But if an earthquake occurs at the
-right building, both buildings will be affected.So the maximum
-number of buildings that can be affected is max(1, 2) = 2.
-```
-Sample I/O 2 :
-```
-Input: buildings = [[1,1,5],[10,10,5]]
-Output: 1
-```
-
-### December 23 - Crystal Grid
-#### Problem Statement
-```
-In the ancient kingdom, a mystical Crystal Grid of size N x N (where 1 <= N <= 500) holds secrets of immense power.
-Each cell in the grid contains a magical value. To unlock the grid's energy, the wizard has devised a three-step process based on its structure:
-
-Task 1: The Diagonal Energy Difference
-Extract the Primary Energy Path, which is the sum of magical values along the primary diagonal (from the top-left to the bottom-right of the grid).
-Extract the Secondary Energy Path, which is the sum of magical values along the secondary diagonal (from the top-right to the bottom-left of the grid).
-Calculate the absolute difference between these two paths:
-Diagonal_Energy = |Sum_primary - Sum_secondary|
-
-Task 2: The Boundary Energy
-Calculate the Boundary Energy, which is the sum of all magical values located on the boundary of the grid (the outermost rows and columns).
-
-Task 3: The Final Magical Result
-Combine the results to compute the Final Magical Result:
-Final_Result = Diagonal_Energy + Boundary_Energy
-```
-Sample I/O:
-```
-Crystal Grid (N = 3):
-1 2 3  
-4 5 6  
-7 8 9  
-Diagonal Energy Difference:
-
-Primary Diagonal = 1 + 5 + 9 = 15
-Secondary Diagonal = 3 + 5 + 7 = 15
-Diagonal_Energy = |15 - 15| = 0
-Boundary Energy:
-
-Boundary elements = 1, 2, 3, 4, 6, 7, 8, 9
-Boundary_Energy = 1 + 2 + 3 + 4 + 6 + 7 + 8 + 9 = 40
-Final Magical Result:
-Final_Result = Diagonal_Energy + Boundary_Energy = 0 + 40 = 40
-```
-### December 24 - String Permutation Grouping
-#### Problem Statement
-```
-Generate a function that groups the unique permutations of a string based on their
-lexicographical order but extracted in a specific non-standard manner.
-```
-![image](https://github.com/user-attachments/assets/63965430-b425-46de-ad14-0b022631a971)
-```
-1. Given a string s, generate all unique permutations of the string.
-2. A
-er generating the permutations, group them based on their first letter. For
-each letter, list the permutations that start with that letter.
-3. Finally, return a dictionary where each key is the starting letter of the
-permutations, and the value is a list of permutations starting with that letter,
-formatted in lexicographical order.
-```
-Input Format
-```
-● A single string s contains only lowercase letters (1 ≤ length of s ≤ 12). The string
-may contain duplicates.
-```
-Sample Input and Output
-```
-Input 1: abc
-Output 1:
-{
-'a': ['abc', 'acb'],
-'b': ['bac', 'bca'],
-'c': ['cab', 'cba']
-}
-```
-Constraints
-```
-● The function should handle duplicate letters appropriately in the permutations
-(i.e., no duplicate permutations in the output).
-● The output should be sorted for each group in lexicographical order.
-```
-References :
-https://mathworld.wolfram.com/LexicographicOrder.html
-
-
-### December 25 - Task Scheduler
-
-#### Problem Statement
-```
-Design a task scheduler using any data structure where each node contains the task
-description and its priority. The tasks should be arranged in the list based on priority
-(highest priority first). Allow for the following operations:
-• Add a new task with priority.
-• Remove a completed task.
-• Search for Task
-• Display the tasks in priority order.
-```
-![image](https://github.com/user-attachments/assets/d4e81a33-06da-4a28-8933-b7b3ed7af25e)
-
-
-Example Input
-```
-• Add task: (”Complete Assignment”, Priority 2)
-• Add task: (”Buy Groceries”, Priority 1)
-• Display: [(”Complete Assignment”, Priority 2), (”Buy Groceries”, Priority 1)]
-• Remove task: ”Complete Assignment”
-• Final list: [(”Buy Groceries”, Priority 1)]
-
-```
-Output Format
-```
-Use a menu driven Task Scheduler.
-```
-Constraints
-```
-• Try to keep Search time in O(k) ,i.e a constant lookup.
-• Program Should be Modular.
-• The program must compute the result within 1 second.
-```
-Notes
-```
-You can create any sort of data structure for the Scheduler but make sure it is self
-balancing based on priority. For achieving constant lookup time during searching check
-out dynamic hashing. Also a bonus criteria would be:
-• Trying to reduce runtime memory.
-• Storing the Scheduler data locally using file system methods.
-```
-
-
-
-### December 26 - Escape The Lava Field
-
-#### Problem Statement
-```
-You are standing at the edge of a dangerous lava field, represented as an array of stones.
-Each stone has a number written on it, indicating the maximum number of stones you can
-jump forward from that position. Starting from the first stone, determine if it’s possible to
-safely reach the last stone without falling into the lava.
-Problem Statement:-
-Given an array where each element represents the maximum number of steps you can
-jump forward from that element, return true if we can reach the last index starting from the
-first index. Otherwise, return false.
-```
-![image](https://github.com/user-attachments/assets/157af115-b519-4450-8fc2-a9ba768b7b2a)
-
-Example 1:
-```
-Input:nums = [2, 3, 1, 0, 4]
-Output: True
-Explanation:
-We start at index 0, with value 2 this means we can jump to index 1 or 2.
-From index 1, with value 3, we can jump to index 2, 3, or 4. However, if we jump to index 2
-with value 1, we can only jump to index 3.
-So we jump to index 1 then index 4 reaching the end of the array.
-Hence, we return true.
-```
-Example 2:-
-```
-Input:nums = [3, 2, 1, 0, 4]
-Output: False
-```
-### December 27 - Trapping Rain Water
-
-#### Problem Statement
-```
-Given an array representing bar heights in an elevation map, compute the total units of
-water trapped between bars after raining. The width of each bar is 1. Return the total
-trapped water.
-Problem Statement:-
-Given n non-negative integers representing an elevation map where the width of each bar
-is 1, compute how much water it can trap after raining.
-```
-Example 1:
-```
-Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
-Output: 6
-Explanation: The above elevation map (black section) is represented
-by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water
-(blue section) are being trapped.
-```
-Example 2:-
-```
-Input: height =
-[4,2,0,3,2,5]
-Output: 9
-```
-### December 28 - Bookshelf Organizer
-
-#### Problem Statement
-
-```
-Sonny has several books and wants to organize them into shelves such
-that each shelf contains exactly shelfSize books, and the books on each
-shelf are arranged in sequential order based on their assigned numbers.
-Given an integer array books where books[i] represents the number on the
-ith book and an integer shelfSize, return true if he can organize the books
-this way, or false otherwise.
-```
-
-SAMPLE TEST CASE:
-
-```
-INPUT:
-books = [1, 2, 3, 6, 2, 3, 4, 7, 8]
-shelfSize = 3
-One possible arrangement is:
-Group 1: [1, 2, 3]
-Group 2: [2, 3, 4]
-Group 3: [6, 7, 8]
-OUTPUT:
-So,you return true
-If not possible,you return false.
-```
-
-SAMPLE TEST CASE 2:
-
-```
-books = [1, 2, 3, 4, 5]
-shelfSize = 4
-One possible arrangement is:
-[1, 2, 3, 4]
-But we can’t allot a shelf for the book 5.
-OUTPUT:
-So,you need to return false.
-```
-
-```
-P.S: While a O(N*N) solution will be able to handle small test cases,it will fail
-with large enough ones,so can you come up with a solution that can visit
-each element only once,i.e a O(N) solution?
-```
-### December 29 - The Maze of Weighted Portals
-
-#### Problem Statement
-
-```
-You are given a rectangular grid of size N x M, where each cell represents a
-room. Some rooms are connected by portals with varying weights. Moving
-through a portal costs you a certain weight (energy). Your goal is to move from
-the top-left corner (1,1) to the bottom-right corner (N,M) with the minimum
-total weight possible. However, you have a restriction: you can only use each
-portal at most once.
-Each portal connects exactly two rooms (not necessarily adjacent), and there are
-P portals in total. You can move to neighboring rooms (up, down, left, right) at
-no cost, but the portals are your only means to reduce the distance significantly.
-```
-
-![image](https://github.com/user-attachments/assets/45cbadc6-bcc1-4768-a447-cce3b80893b6)
-
-
-Input Format
-
-```
-1. First line: Two integers N (number of rows) and M (number of columns).
-2. Second line: An integer P (number of portals).
-3. Next P lines: Each line contains four integers: x1, y1, x2, y2, W:
-○ (x1, y1) and (x2, y2) are the grid coordinates of the two rooms
-connected by the portal.
-○ W is the weight of the portal.
-4. Output: An integer representing the minimum total weight to reach (N,
-M) from (1, 1).
-```
-
-Constraints
-
-```
-● 1 ≤ N, M ≤ 50
-● 1 ≤ P ≤ 1000
-● 1 ≤ W ≤ 100
-● You may assume all portals are distinct, and (1, 1) and (N, M) are
-guaranteed to be part of the grid.
-```
-
-Input 1:
-
-```
-4 4
-3
-1 1 2 3 5
-2 3 4 4 2
-1 2 4 1 8
-```
-
-Output 1:
-
-```
-10
-Explanation for Input 1:
-● The grid is 4 x 4.
-● There are 3 portals:
-○ Portal 1 connects (1,1) to (2,3) with a weight of 5.
-○ Portal 2 connects (2,3) to (4,4) with a weight of 2.
-○ Portal 3 connects (1,2) to (4,1) with a weight of 8.
-● Using Portal 1 to go from (1,1) → (2,3), then Portal 2 to go from (2,3)
-→ (4,4) gives the minimum weight path 5 + 2 = 10.
-```
-
-Input 2:
+### Sample Input 2
 
 ```
 3 3
-2
-1 1 3 3 4
-1 2 2 3 7
+0 1 0
+0 1 0
+0 0 0
 ```
 
-Output 2
+### Sample Output 2
+
+```
+5
+```
+
+### Explanation
+
+```
+- Start: (0,0)
+- End: (m-1, n-1)
+- Obstacles (1s) cannot be crossed.
+- The shortest path moves only through walkable cells (0s) in the minimal number of steps.
+- For Sample Input 1, one possible path: right 2 → down 3 → right 2 = 7 steps.
+```
+
+### Constraints
+
+```
+1 ≤ m, n ≤ 1000
+Grid cells: 0 or 1
+Start and end positions are always within bounds
+```
+
+#### Reference
+
+* LeetCode – Shortest Path in Binary Matrix: [https://leetcode.com/problems/shortest-path-in-binary-matrix/](https://leetcode.com/problems/shortest-path-in-binary-matrix/)
+* GeeksforGeeks – BFS on Grid: [https://www.geeksforgeeks.org/shortest-path-in-a-binary-maze/](https://www.geeksforgeeks.org/shortest-path-in-a-binary-maze/)
+* GeeksforGeeks – Breadth-First Search (BFS) Basics: [https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/)
+
+## December 24 - First Non-Repeating Character in a String
+
+#### Problem Statement
+
+```
+You are given a string containing lowercase English letters. 
+
+Determine the first character that does not repeat anywhere else in the string. 
+
+If all characters repeat, print "No non-repeating character found."
+```
+
+### Input Format
+
+```
+- A single string containing only lowercase letters (a–z), without spaces.
+```
+
+### Output Format
+
+```
+- If a non-repeating character exists:
+  "The first non-repeating character is: <character>"
+- If all characters repeat:
+  "No non-repeating character found."
+```
+
+### Sample Input 1
+
+```
+swiss
+```
+
+### Sample Output 1
+
+```
+The first non-repeating character is: w
+```
+
+### Sample Input 2
+
+```
+aabbcc
+```
+
+### Sample Output 2
+
+```
+No non-repeating character found.
+```
+
+### Explanation
+
+```
+For Sample Input 1:
+- Input string: swiss
+- s → appears 3 times
+- w → appears 1 time
+- i → appears 1 time
+- s, s again → repeating
+The first character that appears only once is 'w'.
+```
+
+### Constraints
+
+```
+- 1 ≤ length of string ≤ 10^5
+- String contains only lowercase English letters (a–z)
+```
+
+#### Reference
+
+* LeetCode – First Unique Character in a String: [https://leetcode.com/problems/first-unique-character-in-a-string/](https://leetcode.com/problems/first-unique-character-in-a-string/)
+* GeeksforGeeks – First Non-Repeating Character in a String: [https://www.geeksforgeeks.org/given-a-string-find-its-first-non-repeating-character/](https://www.geeksforgeeks.org/given-a-string-find-its-first-non-repeating-character/)
+
+## December 25 - Treasure Hunt in the Locked Maze
+
+### Problem Statement
+
+```
+You are an adventurer exploring a maze to find a hidden treasure. 
+The maze is a 2D grid of size M × N with the following symbols:
+
+- S → Starting position
+- T → Treasure (goal)
+- . → Open path
+- # → Wall
+- a–j → Keys to unlock doors
+- A–J → Locked doors that require corresponding keys
+
+You can move up, down, left, or right. 
+Find the minimum number of steps needed to reach the treasure, collecting any keys needed to unlock doors. 
+Return -1 if the treasure is unreachable.
+```
+
+### Input Format
+
+```
+- Two integers M and N — number of rows and columns
+- M lines, each containing N characters representing the maze
+```
+
+### Output Format
+
+```
+- A single integer: minimum steps to reach the treasure
+- -1 if unreachable
+```
+
+### Sample Input 1
+
+```
+3 3
+S.a
+#A#
+..T
+```
+
+### Sample Output 1
+
+```
+6
+```
+
+### Sample Input 2
+
+```
+3 4
+S.A.
+###.
+a...
+```
+
+### Sample Output 2
+
+```
+-1
+```
+
+### Explanation
+
+```
+Sample 1 Maze:
+
+Row 0: S . a
+Row 1: # A #
+Row 2: . . T
+
+Path:
+1. Start at S (0,0)
+2. Move right to collect key a → (0,1) → (0,2) (steps = 2)
+3. Backtrack to door A and unlock it → (0,2) → (0,1) → (1,1) (steps = 4)
+4. Move to treasure → (1,1) → (2,1) → (2,2) (steps = 6)
+
+Total steps = 6
+```
+
+### Constraints
+
+```
+- 1 ≤ M, N ≤ 30
+- Maximum 10 keys/doors (a–j, A–J)
+- Exactly one starting point S and one treasure T
+```
+
+### Reference
+
+* Shortest Path in a Grid with Keys and Doors – LeetCode: [https://leetcode.com/problems/shortest-path-to-get-all-keys/](https://leetcode.com/problems/shortest-path-to-get-all-keys/)
+* BFS on Grid – GeeksforGeeks: [https://www.geeksforgeeks.org/shortest-path-in-a-binary-maze/](https://www.geeksforgeeks.org/shortest-path-in-a-binary-maze/)
+
+## December 26 - Mountain Climber – Longest Ascending Path
+
+### Problem Statement
+
+```
+You are exploring a mountainous terrain represented as an M × N grid. 
+Each cell contains an integer representing the height at that location.
+
+Your goal is to climb along the longest strictly ascending path, moving only to 
+adjacent cells (up, down, left, right). 
+Find the length of the longest strictly increasing path in the terrain.
+```
+
+### Input Format
+
+```
+- Two integers M and N — number of rows and columns
+- M lines each with N space-separated integers — heights of terrain cells
+```
+
+### Output Format
+
+```
+- A single integer: length of the longest strictly ascending path
+```
+
+### Sample Input 1
+
+```
+3 3
+9 9 4
+6 6 8
+2 1 1
+```
+
+### Sample Output 1
 
 ```
 4
-Approach and Challenges
-1. Graph Representation:
-Represent the grid as a graph where each cell is a node. Portals act as
-weighted edges connecting non-adjacent nodes.
-2. Pathfinding with Constraints:
-Use a modified Dijkstra's algorithm or A* search to find the shortest path.
-Since portals can only be used once, you must maintain state information
-for visited portals.
-3. Optimization:
-Efficiently handle up to 1000 portals and avoid redundant calculations.
-Use priority queues or dynamic programming for optimal performance.
-```
-### December 30 - Super Egg Drop
-
-#### Problem Statement
-
-```
-You are tasked with finding the critical floor in a building with n floors using k identical eggs. The critical
-floor, fff, is defined as the highest floor where an egg does not break when dropped. The following rules
-apply:
-If an egg is dropped from floor xxx:
-It breaks if x>fx > fx>f.
-It does not break if x≤fx \leq fx≤f.
-Objective:
-Minimize the maximum number of moves required to determine the critical floor fff with certainty.
-Constraints:
-If an egg breaks, it can no longer be used.
-If an egg does not break, it can be reused for subsequent drops.
-You may drop eggs from any floor between 1 and nnn.
-Goal:
-Determine the minimum number of moves required to guarantee the discovery of fff, regardless of the initial position of fff .
-```
-![image](https://github.com/user-attachments/assets/b005f7c4-637f-46bb-a80b-934f04bf0bf2)
-
-Sample I/O 1:
-
-```
-Input: k = 2 (eggs), n = 6 (floors)
-Output 1: Minimum moves required = 3
 ```
 
-Explanation of input format 1:
+### Sample Input 2
 
 ```
-The input for this problem consists of two integers:
-1. Number of Eggs (kkk):
-o Represents the total number of identical eggs available for testing.
-o Each egg can either break or remain intact when dropped from a floor.
-o If an egg breaks, it cannot be reused in further tests.
-2. Number of Floors (nnn):
-o Represents the total number of floors in the building, labeled from 1 to nnn.
-o The goal is to find the critical floor fff (where 0≤f≤n0 \leq f \leq n0≤f≤n) using the minimum
-number of moves.
-
-Key Characteristics of Input:
-1. Both kkk (number of eggs) and nnn (number of floors) are positive integers:
-o 1≤k≤1001 \leq k \leq 1001≤k≤100
-Meaning of k=1k = 1k=1:
- If there is only one egg, it can be tested sequentially from the first floor upwards until it breaks. In
-this case, the worst-case number of moves is equal to nnn.
-Meaning of n=1n = 1n=1:
- If there is only one floor, the critical floor is either floor 1 or floor 0 (no breaking). Only one move is
-needed.
-```
-Sample I/O 2:
-
-```
-Input: k = 3 (eggs), n = 14 (floors)
-Ouput: Minimum moves required = 4
-```
-![image](https://github.com/user-attachments/assets/7dbd12bd-2d4c-4d53-a566-f65102af7d27)
-
-References :
-
-https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
-
-https://en.wikipedia.org/wiki/Shortest_path_problem
-
-https://en.wikipedia.org/wiki/A*_search_algorithm
-
-
-### December 31 - Speed of Light Simulation
-
-#### Problem Statement
-```
-You are designing a physics simulation where the speed of light needs to be
- approximated efficiently. The simulation requires calculating the normalized
- velocity vectors of particles in real-time. Given `n` particles with their
- initial velocity components, devise an algorithm to compute their normalized
-velocities within strict time constraints. You can't use division in the algorithm
- as it is a slow system-independent process.
-
+3 3
+3 4 5
+3 2 6
+2 2 1
 ```
 
-
-## Input Format
-
-![image](https://github.com/user-attachments/assets/0418e03c-b303-4f82-bf4d-dff3cd751301)
-
-## Output Format
-Output `n` lines, each containing three floating-point numbers representing the normalized velocity vector of the `i`-th particle:
-
-![image](https://github.com/user-attachments/assets/daac15d2-f2aa-40ea-af56-fd3ec3338a65)
-
-![image](https://github.com/user-attachments/assets/7f80c1ac-4de8-46b4-b76a-2ff52b1a242b)
-
-## Constraints
-
-![image](https://github.com/user-attachments/assets/dad67bbc-c7e2-4e03-8a9b-89b5e78e1340)
-
-## Notes
-```
-Division is not allowed. To achieve the required performance, traditional square root
- computations may not suffice for large `n`. Consider optimizing your solution using 
-approximation techniques such as Newton's method and try using bit manipulation based on
- the IEEE 754 format. For more pointers, look for the Quake III algorithm.
+### Sample Output 2
 
 ```
-## Example Input
+4
+```
+
+### Sample Input 3
 
 ```
-vec1:  3  4  0
-vec2: -6  8  0
-vec3:  5  12 0
+1 1
+1
+```
+
+### Sample Output 3
 
 ```
-## Example Output
+1
+```
+
+### Explanation
 
 ```
-normalised vec1:  0.6      0.8      0.0
-normalised vec2: -0.6      0.8      0.0
-normalised vec3:  0.384615 0.923077 0.0
+Sample 1: Longest ascending path is [1 → 2 → 6 → 9]
+Sample 2: One possible path is [3 → 4 → 5 → 6]
+```
+
+### Constraints
 
 ```
-## Edge Cases
+- 1 ≤ M, N ≤ 200
+- 0 ≤ height ≤ 2³¹ - 1
+```
 
-![image](https://github.com/user-attachments/assets/0c83f6d1-9cfb-4434-9080-816e7f8cdde8)
+### Reference
+
+* Longest Increasing Path in a Matrix – LeetCode: [https://leetcode.com/problems/longest-increasing-path-in-a-matrix/](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/)
+* DFS with Memoization – GeeksforGeeks: [https://www.geeksforgeeks.org/longest-increasing-path-in-a-matrix/](https://www.geeksforgeeks.org/longest-increasing-path-in-a-matrix/)
+
+## December 27 - Signal Propagation in a Network
+
+### Problem Statement
+
+```
+A city has a network of communication towers represented as a directed graph. 
+Each tower is numbered from 0 to N-1 and each one-way link has a propagation delay.
+
+A signal is sent from a source tower S. The signal travels along the directed links 
+to other towers. Multiple signals can travel simultaneously along different links.
+
+Determine the minimum time needed for all towers to receive the signal. 
+If some towers cannot be reached, return -1.
+```
+
+### Input Format
+
+```
+- An integer N — number of towers
+- An integer M — number of directed links
+- M lines each with three integers u, v, t — a link from tower u to v with propagation time t
+- An integer S — the source tower
+```
+
+### Output Format
+
+```
+- A single integer: minimum time for all towers to receive the signal, or -1 if some are unreachable
+```
+
+### Sample Input 1
+
+```
+4
+4
+0 1 2
+1 2 1
+0 2 4
+2 3 3
+0
+```
+
+### Sample Output 1
+
+```
+6
+```
+
+### Sample Input 2
+
+```
+3
+2
+0 1 5
+1 0 5
+0
+```
+
+### Sample Output 2
+
+```
+-1
+```
+
+### Explanation
+
+```
+Sample 1: 
+- Signal travels 0 → 1 → 2 → 3: total time = 2 + 1 + 3 = 6
+- Other path 0 → 2 → 3 = 4 + 3 = 7, which is slower
+- Minimum time for all towers = 6
+
+Sample 2:
+- Tower 2 is unreachable from source 0 → return -1
+```
+
+### Constraints
+
+```
+- 1 ≤ N ≤ 500
+- 0 ≤ M ≤ N × (N-1)
+- 0 ≤ u, v < N
+- 1 ≤ t ≤ 10^4
+```
+
+### Reference
+
+* Network Delay Time – LeetCode: [https://leetcode.com/problems/network-delay-time/](https://leetcode.com/problems/network-delay-time/)
+* Dijkstra’s Algorithm – GeeksforGeeks: [https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-using-priority-queue/](https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-using-priority-queue/)
+
+## December 28 - Sweet Rewards for Students
+
+### Problem Statement
+
+```
+In a school, n students stand in a line, each with a performance score. 
+Sweets must be distributed following these rules:
+
+1. Every student receives at least one sweet.
+2. A student with a higher score than their immediate neighbors must get more sweets than them.
+
+Determine the minimum total number of sweets required while satisfying these rules.
+```
+
+### Input Format
+
+```
+- An integer n — number of students
+- A line with n space-separated integers — performance scores of the students
+```
+
+### Output Format
+
+```
+- A single integer: minimum total number of sweets
+```
+
+### Sample Input 1
+
+```
+3
+1 0 2
+```
+
+### Sample Output 1
+
+```
+5
+```
+
+### Sample Input 2
+
+```
+3
+1 2 2
+```
+
+### Sample Output 2
+
+```
+4
+```
+
+### Explanation
+
+```
+Sample 1:
+- Scores: [1, 0, 2]
+- Minimum sweets distribution: [2, 1, 2]
+- Total sweets = 5
+
+Sample 2:
+- Scores: [1, 2, 2]
+- Minimum sweets distribution: [1, 2, 1]
+- Total sweets = 4
+```
+
+### Constraints
+
+```
+- 1 ≤ n ≤ 2 × 10^4
+- 0 ≤ score[i] ≤ 2 × 10^4
+```
+
+### Reference
+
+* Candy Problem – LeetCode: [https://leetcode.com/problems/candy/](https://leetcode.com/problems/candy/)
+* Greedy Two-Pass Approach – GeeksforGeeks: [https://www.geeksforgeeks.org/candy-distribution-problem/](https://www.geeksforgeeks.org/candy-distribution-problem/)
+
+## December 29 - Minimum Weight Cycle in a Graph
+
+### Problem Statement
+
+```
+Given an undirected, weighted graph with V vertices numbered from 0 to V-1, and E edges represented as a 2D array edges[][], where each element edges[i] = [u, v, w] denotes an edge between nodes u and v with weight w. All edge weights are positive integers.
+
+Your task is to find the minimum weight cycle in the graph.
+
+Note:
+- A cycle in a graph is a path that starts and ends at the same vertex without repeating any edges or vertices (except the starting/ending vertex).
+- The minimum weight cycle is the one among all possible cycles that has the smallest total sum of edge weights.
+```
+
+### Input Format
+
+```
+- An integer V — number of vertices
+- A 2D array edges — list of edges [u, v, w]
+```
+
+### Output Format
+
+```
+- A single integer — total weight of the minimum cycle
+```
+
+### Sample Input 1
+
+```
+V = 5
+edges = [
+ [0, 1, 2],
+ [1, 2, 2],
+ [1, 3, 1],
+ [1, 4, 1],
+ [0, 4, 3],
+ [2, 3, 4]
+]
+```
+
+### Sample Output 1
+
+```
+6
+```
+
+### Sample Input 2
+
+```
+V = 6
+edges = [
+ [0, 1, 4],
+ [1, 2, 3],
+ [2, 0, 5],
+ [1, 3, 2],
+ [3, 4, 6],
+ [4, 1, 1]
+]
+```
+
+### Sample Output 2
+
+```
+9
+```
+
+### Explanation
+
+```
+Sample 1:
+- Cycle 0 → 1 → 4 → 0: weight = 2 + 1 + 3 = 6
+- Cycle 1 → 2 → 3 → 1: weight = 2 + 4 + 1 = 7
+- Minimum weight cycle = 6
+
+Sample 2:
+- Cycle 0 → 1 → 2 → 0: weight = 4 + 3 + 5 = 12
+- Cycle 1 → 3 → 4 → 1: weight = 2 + 6 + 1 = 9
+- Minimum weight cycle = 9
+```
+
+### Constraints
+
+```
+- 1 ≤ V ≤ 500
+- 1 ≤ number of edges ≤ V*(V-1)/2
+- 1 ≤ weight ≤ 10^5
+```
+
+---
+
+## December 30 - Burn the Binary Tree from Target Node
+
+### Problem Statement
+
+```
+Given a binary tree and a target node, fire starts at the target node and spreads to all connected nodes (parent and children) simultaneously. 
+
+Your task is to print the sequence of nodes burning at each time step until the entire tree is burned.
+
+Rules:
+- Fire spreads constantly to connected nodes.
+- Every node takes the same time to burn.
+- Each node burns only once.
+```
+
+### Input Format
+
+```
+- A binary tree
+- An integer representing the target node
+```
+
+### Output Format
+
+```
+- Print the sequence of nodes burning at each time step, one line per step
+```
+
+### Sample Input 1
+
+```
+Target node = 14
+```
+
+### Sample Output 1
+
+```
+14
+21, 24, 10
+15, 12
+22, 23, 13
+```
+
+### Sample Input 2
+
+```
+Target node = 41
+```
+
+### Sample Output 2
+
+```
+41
+2, 19
+12
+82
+15, 95
+21, 7, 16
+```
+
+### Explanation
+
+```
+Sample 1:
+- Node 14 burns first
+- Next, neighbors 21, 24, 10 burn
+- Then nodes 15 and 12 burn
+- Finally, leaves 22, 23, 13 burn
+- Process continues until the entire tree is burned
+
+Sample 2:
+- Node 41 burns first
+- Then neighbors 2 and 19 burn
+- Fire spreads level by level, covering parent and child nodes at each step until the tree is fully burned
+```
+
+### Constraints
+
+```
+- 1 ≤ number of nodes ≤ 10^4
+- Node values are unique integers
+```
+
+## December 31 - Sudoku Solver
+
+### Problem Statement
+
+```
+Write a program to solve a Sudoku puzzle by filling the empty cells. The Sudoku must follow these rules:
+
+- Each of the digits 1-9 must occur exactly once in each row.
+- Each of the digits 1-9 must occur exactly once in each column.
+- Each of the digits 1-9 must occur exactly once in each of the 9 3×3 sub-boxes of the grid.
+- The '.' character indicates empty cells.
+```
+
+### Input Format
+
+```
+- A 9×9 grid where each cell contains a digit 1–9 or '.' for empty cells.
+```
+
+### Output Format
+
+```
+- Print the completed Sudoku grid as a 9×9 matrix.
+```
+
+### Sample Input
+
+```
+5 3 . . 7 . . . .
+6 . . 1 9 5 . . .
+. 9 8 . . . . 6 .
+8 . . . 6 . . . 3
+4 . . 8 . 3 . . 1
+7 . . . 2 . . . 6
+. 6 . . . . 2 8 .
+. . . 4 1 9 . . 5
+. . . . 8 . . 7 9
+```
+
+### Sample Output
+
+```
+5 3 4 6 7 8 9 1 2
+6 7 2 1 9 5 3 4 8
+1 9 8 3 4 2 5 6 7
+8 5 9 7 6 1 4 2 3
+4 2 6 8 5 3 7 9 1
+7 1 3 9 2 4 8 5 6
+9 6 1 5 3 7 2 8 4
+2 8 7 4 1 9 6 3 5
+3 4 5 2 8 6 1 7 9
+```
+
+### Explanation
+
+```
+- All rows, columns, and 3×3 sub-boxes contain digits 1–9 exactly once.
+- The puzzle is completely filled while respecting Sudoku rules.
+```
+
+### Constraints
+
+```
+- board.length == 9
+- board[i].length == 9
+- board[i][j] is a digit or '.'
+- It is guaranteed that the input board has only one solution
+```
+
 
 # FAQ
 
@@ -1687,18 +2481,14 @@ Maybe you could try using a different language for every problem as a mini-chall
 
 If you are new to Git or GitHub, check out this out [GitHub](https://guides.github.com/activities/hello-world/)
 
-#### Where are the rest of the problems?
-
-Our code ninjas are hard at work preparing the rest of the problems. Don't worry, they'll be up soon.
-
 #### How should I complete these programs?
 
 We have a folder for each day of the month. Simply complete your code and move the file into that folder.
 
-Be sure to rename your file to the following format: `language_username` or `language_username_problemname`
-Some examples:
-`python3_exampleUser.py`
-`c_exampleUser.c`
+Be sure to rename your file to the following format:  `username_problemname`
+Example:
+`exampleUser_probname.py`
+
 
 **Please do not modify any existing files in the repository.**
 
