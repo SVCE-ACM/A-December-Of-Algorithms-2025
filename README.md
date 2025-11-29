@@ -680,14 +680,6 @@ No element appears exactly once → output = 0
 1 ≤ N ≤ 100000
 -10^9 ≤ array elements ≤ 10^9
 ```
-
-#### Explanation
-
-```
-Use a frequency map / dictionary to count occurrences of each number.
-Sum only the numbers whose frequency is exactly 1.
-```
-
 #### Reference
 - GeeksforGeeks – Frequency counting using hashmap:
   https://www.geeksforgeeks.org/frequency-of-array-elements/
@@ -743,15 +735,6 @@ Node values can be any integer.
 Only node pointers may be changed.
 ```
 
-#### Explanation
-
-```
-This reordering is done using three steps:
-1. Find the middle of the linked list.
-2. Reverse the second half.
-3. Merge both halves by alternating nodes.
-```
-
 #### Reference
 
 - GeeksforGeeks – Reorder List (Zig-Zag merge)
@@ -799,13 +782,6 @@ The count of prime numbers less than 20 is: 8
 ```
 0 ≤ N ≤ 1000000
 ```
-
-#### Explanation
-
-```
-Use the Sieve of Eratosthenes to efficiently count all primes below N.
-```
-
 #### Reference
 
 
@@ -867,17 +843,6 @@ Duplicate Number: 3
 - Expected Space Complexity: O(1)
 - All values are between 1 and N
 ```
-
-#### Explanation
-
-```
-This problem can be solved using the Cyclic Sort technique:
-- Each number should ideally be placed at index (number - 1).
-- While rearranging, if a conflict occurs (a number is already in its correct
-  place), that number is the duplicate.
-- The index that never receives its correct number corresponds to the missing value.
-```
-
 #### Reference
 
 - GeeksforGeeks – Cyclic Sort and finding missing/duplicate:
@@ -945,13 +910,9 @@ Rules:
 - 1 ≤ heights[i] ≤ 10^6
 ```
 
-### Explanation
+### Expected complexity
 
 ```
-Iterate through the array from index 1 to N-2:
-- For each element, check if it is strictly greater than both neighbors.
-- Collect indices of all such elements.
-
 Expected Complexity:
 - Time: O(N)
 - Space: O(P), where P is the number of peaks
@@ -1025,16 +986,6 @@ representation of the chest’s contents, preserving the nested structure.
 - All treasure values are in the range [-10^6, 10^6]
 ```
 
-### Explanation
-
-```
-You may use a stack to keep track of nested compartments while parsing:
-
-- When encountering [, create a new compartment.
-- When encountering ], close the current compartment and add it to its parent.
-- Digits and negative signs form integer treasures to be added to the current compartment.
-```
-
 ### Reference
 
 * GeeksforGeeks – Deserialize nested list / Nested Integer: [https://www.geeksforgeeks.org/deserialize-nested-integer-array/](https://www.geeksforgeeks.org/deserialize-nested-integer-array/)
@@ -1102,16 +1053,6 @@ false
 - The number of nodes is in the range [1, 1000]
 - Node values are unique integers
 ```
-
-### Explanation
-
-```
-Perform a level-order traversal (BFS):
-
-- Once a null child is seen, all subsequent nodes must also be null.
-- If a non-null node appears after a null, the tree is not complete.
-```
-
 ### Reference
 
 * GeeksforGeeks – Check Complete Binary Tree: [https://www.geeksforgeeks.org/check-whether-binary-tree-complete-not-set-2-recursive-solution/](https://www.geeksforgeeks.org/check-whether-binary-tree-complete-not-set-2-recursive-solution/)
