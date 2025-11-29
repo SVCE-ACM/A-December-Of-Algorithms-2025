@@ -14,7 +14,7 @@ Finish them all to get a certificate :)
 
 **Send a pull request only after completing all 31 algorithms.**
 
-**Please submit all PRs on or before January 21st 11:59 PM IST.**
+**Please submit all PRs on or before January 1st 11:59 PM IST.**
 
 ## What Do I Do?
 
@@ -26,44 +26,36 @@ Check out our FAQ for more information.
 
 ## Index
 
-- [**December 01 - The Vanishing Number**](#december-01---the-vanishing-number)
-- [**December 02 - The Wave Sort Challenge**](#december-02---the-wave-sort-challenge)
-- [**December 03 - Alternating Square Arrangement**](#december-03---alternating-square-arrangement)
-- [**December 04 - Plant Growth Tracker**](#december-04---plant-growth-tracker)
-- [**December 05 - Josephus Problem**](#december-05---josephus-problem)
-- [**December 06 - Target Pair Finder**](#december-06---target-pair-finder)
-- [**December 07 - The Magical Tower**](#december-07---the-magical-tower)
-- [**December 08 - Digit Manipulation**](#december-08---digit-manipulation)
-- [**December 09 - Customer Return Frequency**](#december-09---customer-return-frequency)
-- [**December 10 - Concurrent Task Execution**](#december-10---concurrent-task-execution)
-- [**December 11 - The Robot Returns**](#december-11---the-robot-returns)
-- [**December 12 - Smart Ticketing System**](#december-12---smart-ticketing-system)
-- [**December 13 - Minimum Swap Sorting Problem**](#december-13---minimum-swap-sorting-problem)
-- [**December 14 - Split the Squad**](#december-14---split-the-squad)
-- [**December 15 -  Holiday Gift Arrangement**](#december-15---holiday-gift-arrangement)
-- [**December 16 -  Train Platform Calculation**](#december-16---train-platform-calculation)
-- [**December 17 -  Cybersecurity Alert Management**](#december-17---cybersecurity-alert-management)
-- [**December 18 -  Howard's Rare Gems**](#december-18---howards-rare-gems)
-- [**December 19 -  Endless Towers**](#december-19---endless-towers)
-- [**December 20 -  Robot Pathways Problem**](#december-20---robot-pathways-problem)
-- [**December 21 -  The Intersection**](#december-21---the-intersection)
-- [**December 22 -  Earthquake Propagation**](#december-22---earthquake-propagation)
-- [**December 23 -  Crystal Grid**](#december-23---crystal-grid)
-- [**December 24 -  String Permutation Grouping**](#december-24---string-permutation-grouping)
-- [**December 25 -  Task Scheduler**](#december-25---task-scheduler)
-- [**December 26 -  Escape The Lava Field**](#december-26---escape-the-lava-field)
-- [**December 27 -  Trapping Rain Water**](#december-27---trapping-rain-water)
-- [**December 28 -  Bookshelf Organizer**](#december-28---bookshelf-organizer)
-- [**December 29 -  The Maze of Weighted Portals**](#december-29---the-maze-of-weighted-portals)
-- [**December 30 -  Super Egg Drop**](#december-30---super-egg-drop)
-- [**December 31 -  Speed Of Light Simulation**](#december-31---speed-of-light-simulation)
-
-
-  
-
-
-
-
+- [**December 01 - Perfect Squares Counter**](#december-01---perfect-squares-counter)
+- [**December 02 - Total of Distinct Values**](#december-02---total-of-distinct-values)
+- [**December 03 - Bridge Crossing Challenge**](#december-03---bridge-crossing-challenge)
+- [**December 04 - Target Subarray Finder**](#december-04---target-subarray-finder)
+- [**December 05 - Island Counter**](#december-05---island-counter)
+- [**December 06 - Magic Square of Odd Order**](#december-06---magic-square-of-odd-order)
+- [**December 07 - Baseball Score Record Keeper**](#december-07---baseball-score-record-keeper)
+- [**December 08 - Cafeteria Queue Challenge**](#december-08---cafeteria-queue-challenge)
+- [**December 09 - Sum of Unique Elements**](#december-09---sum-of-unique-elements)
+- [**December 11 - Counting Prime Numbers**](#december-11---counting-prime-numbers)
+- [**December 12 - The Missing Positive Element**](#december-12---the-missing-positive-element)
+- [**December 13 - Mountain Peaks in a Trail**](#december-13---mountain-peaks-in-a-trail)
+- [**December 14 - Magical Treasure Chest Parser**](#december-14---magical-treasure-chest-parser)
+- [**December 15 - Royal Family Seating**](#december-15---royal-family-seating)
+- [**December 16 - Treasure Trail Adjustment**](#december-16---treasure-trail-adjustment)
+- [**December 17 - Racing Turtles**](#december-17---racing-turtles)
+- [**December 18 - Mirror Necklace Check**](#december-18---mirror-necklace-check)
+- [**December 19 - Balanced Team Assignment**](#december-19---balanced-team-assignment)
+- [**December 20 - Tower Visibility Challenge**](#december-20---tower-visibility-challenge)
+- [**December 21 - Efficient Parcel Sorting**](#december-21---efficient-parcel-sorting)
+- [**December 22 - AquaNet – Minimum Time to Fill All City Reservoirs**](#december-22---aquanet-–-minimum-time-to-fill-all-city-reservoirs)
+- [**December 23 - Shortest Path in a Warehouse Grid**](#december-23---shortest-path-in-a-warehouse-grid)
+- [**December 24 - First Non-Repeating Character in a String**](#december-24---first-non-repeating-character-in-a-string)
+- [**December 25 - Treasure Hunt in the Locked Maze**](#december-25---treasure-hunt-in-the-locked-maze)
+- [**December 26 - Mountain Climber – Longest Ascending Path**](#december-26---mountain-climber-–-longest-ascending-path)
+- [**December 27 - Signal Propagation in a Network**](#december-27---signal-propagation-in-a-network)
+- [**December 28 - Sweet Rewards for Students**](#december-28---sweet-rewards-for-students)
+- [**December 29 - Minimum Weight Cycle in a Graph**](#december-29---minimum-weight-cycle-in-a-graph)
+- [**December 30 - Burn the Binary Tree from Target Node**](#december-30---burn-the-binary-tree-from-target-node)
+- [**December 31 - Sudoku Solver**](#december-31---sudoku-solver)
 - [**FAQ**](#faq)
 
 ## Algorithms
