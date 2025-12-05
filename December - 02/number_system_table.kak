@@ -20,16 +20,12 @@ define-command number-system-table %{
                 bin = ""
                 num = i
                 
-                if (num == 0) {
-                    bin = "0"
-                } else {
-                    while (num > 0) {
-                        bin = (num % 2) bin
-                        num = int(num / 2)
-                    }
+                while (num > 0) {
+                    bin = (num % 2) bin
+                    num = int(num / 2)
                 }
                 
-                printf "echo %5d %5s %5s %6s\n", dec, oct, hex, bin
+                printf "echo %5d %5s %5s %7s\n", dec, oct, hex, bin
             }
         }
         '
