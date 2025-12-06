@@ -1,1 +1,15 @@
+# Input
+N = int(input())
+arr = list(map(int, input().split()))
+
+# Dictionary to count occurrences
+freq = {}
+
+for num in arr:
+    freq[num] = freq.get(num, 0) + 1
+
+# Sum unique elements
+result = sum(num for num in freq if freq[num] == 1)
+
+print(result)
 
