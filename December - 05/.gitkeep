@@ -1,1 +1,37 @@
+def dfs(grid, r, c, R, C):
+    if r < 0 or r >= R or c < 0 or c >= C or grid[r][c] == 0:
+        return
+    
+    grid[r][c] = 0  # mark as visited
+    
+    dfs(grid, r + 1, c, R, C)  # down
+    dfs(grid, r - 1, c, R, C)  # up
+    dfs(grid, r, c + 1, R, C)  # right
+    dfs(grid, r, c - 1, R, C)  # left
 
+
+R, C = map(int, input().split())
+grid = []
+
+for _ in range(R):
+    grid.append(list(map(int, input().split())))
+
+island_count = 0
+
+for i in range(R):
+    for j in range(C):
+        if grid[i][j] == 1:
+            island_count += 1
+            dfs(grid, i, j, R, C)
+
+print(island_count)
+
+sample input 
+4 5
+1 1 0 0 0
+1 1 0 0 1
+0 0 0 1 1
+0 0 0 0 0
+
+sample output
+2
