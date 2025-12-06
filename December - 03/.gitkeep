@@ -1,1 +1,37 @@
+def canReachLastStone(stones):
+    max_reach = 0
+    
+    for i in range(len(stones)):
+        if i > max_reach:
+            return False
+        
+        max_reach = max(max_reach, i + stones[i])
+        
+        if max_reach >= len(stones) - 1:
+            return True
+    
+    return False
+
+# Taking input from user
+stones = list(map(int, input("Enter stone jump values: ").split()))
+
+# Printing result
+if canReachLastStone(stones):
+    print("true")
+else:
+    print("false")
+
+
+sample input 1
+2 3 1 1 4
+
+sample output 1
+true
+
+sample input 2
+3 2 1 0 4
+
+sample output 2
+false
+
 
