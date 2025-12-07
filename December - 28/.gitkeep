@@ -1,1 +1,21 @@
+# Sweets Distribution Problem (Minimum candies required)
+
+n = int(input("Enter number of students: "))
+scores = list(map(int, input("Enter performance scores: ").split()))
+
+# Step 1: Give each student 1 sweet
+sweets = [1] * n
+
+# Step 2: Left → Right pass
+for i in range(1, n):
+    if scores[i] > scores[i - 1]:
+        sweets[i] = sweets[i - 1] + 1
+
+# Step 3: Right → Left pass
+for i in range(n - 2, -1, -1):
+    if scores[i] > scores[i + 1]:
+        sweets[i] = max(sweets[i], sweets[i + 1] + 1)
+
+# Output
+print("Minimum total sweets:", sum(sweets))
 
