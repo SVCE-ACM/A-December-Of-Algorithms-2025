@@ -1,1 +1,46 @@
+from collections import deque
+
+def min_minutes_to_fill(V, edges, initial):
+    graph = [[] for _ in range(V)]
+    
+    # Build adjacency list
+    for u, v in edges:
+        graph[u].append(v)
+        graph[v].append(u)
+
+    q = deque()
+    visited = [False] * V
+    
+    # Enqueue all reservoirs that already have water
+    for i in range(V):
+        if initial[i] == 1:
+            q.append((i, 0))  # (node, minute)
+            visited[i] = True
+
+    max_time = 0
+
+    # BFS traversal
+    while q:
+        node, time = q.popleft()
+        max_time = max(max_time, time)
+
+        for nbr in graph[node]:
+            if not visited[nbr]:
+                visited[nbr] = True
+                q.append((nbr, time + 1))
+
+    # Check if any reservoir remains dry
+    for i in range(V):
+        if not visited[i]:
+            return -1
+
+    return max_time
+
+
+# Input handling
+V, E = map(int, input().split())
+edges = [tuple(map(int, input().split())) for _ in range(E)]
+initial = list(map(int, input().split()))
+
+print(min_minutes_to_fill(V, edges, initial))
 
