@@ -1,1 +1,66 @@
+from collections import defaultdict, deque
+
+# Function to build adjacency list from binary tree
+def build_adj_list(root, adj):
+    if not root:
+        return
+    if root.left:
+        adj[root.val].append(root.left.val)
+        adj[root.left.val].append(root.val)
+        build_adj_list(root.left, adj)
+    if root.right:
+        adj[root.val].append(root.right.val)
+        adj[root.right.val].append(root.val)
+        build_adj_list(root.right, adj)
+
+# Burning tree process
+def burn_tree(root, target):
+    if not root:
+        return
+    
+    adj = defaultdict(list)
+    
+    # Build the graph representation of the tree
+    build_adj_list(root, adj)
+    
+    # BFS from target
+    q = deque([target])
+    visited = set([target])
+    
+    while q:
+        size = len(q)
+        level_nodes = []
+        
+        for _ in range(size):
+            node = q.popleft()
+            level_nodes.append(node)
+            
+            for nei in adj[node]:
+                if nei not in visited:
+                    visited.add(nei)
+                    q.append(nei)
+        
+        print(", ".join(map(str, level_nodes)))
+
+# Example Binary Tree Node Class
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+# --------- Sample Tree (You can modify as required) -----------
+# Example Tree used for sample input 1:
+root = Node(14)
+root.left = Node(21)
+root.right = Node(24)
+root.left.left = Node(15)
+root.left.right = Node(12)
+root.left.left.left = Node(22)
+root.left.left.right = Node(23)
+root.right.left = Node(10)
+root.right.right = Node(13)
+
+target = 14   # Change input here
+burn_tree(root, target)
 
