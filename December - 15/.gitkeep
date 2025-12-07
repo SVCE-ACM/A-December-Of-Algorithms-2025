@@ -1,1 +1,58 @@
+from collections import deque
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def isCompleteTree(root: TreeNode) -> bool:
+    if not root:
+        return True
+
+    queue = deque([root])
+    null_seen = False
+
+    while queue:
+        node = queue.popleft()
+
+        if node is None:
+            null_seen = True
+        else:
+            if null_seen:
+                return False  # Node appears after a null -> violation
+            queue.append(node.left)
+            queue.append(node.right)
+
+    return True
+
+
+# Helper to build tree from list input like LeetCode style
+def buildTree(values):
+    if not values:
+        return None
+    
+    nodes = [TreeNode(v) if v is not None else None for v in values]
+    
+    child_index = 1
+    for i in range(len(nodes)):
+        if nodes[i] is not None:
+            if child_index < len(nodes):
+                nodes[i].left = nodes[child_index]
+                child_index += 1
+            if child_index < len(nodes):
+                nodes[i].right = nodes[child_index]
+                child_index += 1
+    return nodes[0]
+
+
+#  Input
+arr = input("Enter tree as list: ").strip()
+arr = arr.replace("[", "").replace("]", "").split(",")
+
+# Convert to integers + None
+tree_vals = [int(x) if x.strip() != "null" else None for x in arr]
+
+root = buildTree(tree_vals)
+print(isCompleteTree(root))
 
