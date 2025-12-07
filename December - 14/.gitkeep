@@ -1,1 +1,35 @@
+def parseNestedChest(s: str):
+    if not s:
+        return None
+
+    # If the string is just a number
+    if s[0] != '[':
+        return int(s)
+
+    stack = []
+    num = ""
+    for char in s:
+        if char == '[':
+            stack.append([])
+        elif char.isdigit() or char == '-':
+            num += char
+        elif char == ',':
+            if num:
+                stack[-1].append(int(num))
+                num = ""
+        elif char == ']':
+            if num:
+                stack[-1].append(int(num))
+                num = ""
+            last = stack.pop()
+            if stack:
+                stack[-1].append(last)
+            else:
+                return last
+
+
+# Driver code
+s = input().strip()
+result = parseNestedChest(s)
+print(result)
 
