@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "dhanusiyasri_counting_prime_numbers",
+      "request": "launch",
+      "mainClass": "dhanusiyasri_counting_prime_numbers",
+      "projectName": "A-December-Of-Algorithms-2025_346f79fe"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
