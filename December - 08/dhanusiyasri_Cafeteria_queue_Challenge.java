@@ -45,3 +45,10 @@ public class dhanusiyasri_Cafeteria_queue_Challenge {
         sc.close();
     }
 }
+//Note:
+//Input should be given in two lines.
+//First line: student preferences separated by commas (0 for circular, 1 for square).
+//Second line: sandwich types separated by commas (0 for circular, 1 for square).
+//Example Input:
+0,1,0,1
+1,0,0,1
