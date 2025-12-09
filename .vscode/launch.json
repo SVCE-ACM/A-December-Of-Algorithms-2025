@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "dhanusiyasri_the_missing_positive_element",
+      "request": "launch",
+      "mainClass": "dhanusiyasri_the_missing_positive_element",
+      "projectName": "A-December-Of-Algorithms-2025_346f79fe"
+    },
+    {
+      "type": "java",
       "name": "dhanusiyasri_counting_prime_numbers",
       "request": "launch",
       "mainClass": "dhanusiyasri_counting_prime_numbers",
