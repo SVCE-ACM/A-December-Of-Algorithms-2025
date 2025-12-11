@@ -8,10 +8,10 @@ type Turtle record {
 };
 
 public function main() {
-    string|error line1 = io:readln(); // target = 10
-    string|error line2 = io:readln(); // n = 1
-    string|error line3 = io:readln(); // position = [3]
-    string|error line4 = io:readln(); // speed = [3]
+    string|error line1 = io:readln(); 
+    string|error line2 = io:readln(); 
+    string|error line3 = io:readln(); 
+    string|error line4 = io:readln(); 
     
     if (line1 is string && line2 is string && line3 is string && line4 is string) {
         int target = parseVal(line1);
@@ -32,18 +32,6 @@ public function main() {
             i = i + 1;
         }
         
-        // Sort by position descending
-        // Bubble sort or basic sort since N is up to 10^5? 
-        // Ballerina array:sort works on primitive or with function?
-        // array:sort(arr, func)
-        // With 10^5, O(N^2) sort will TLE.
-        // I need a proper sort. Ballerina standard library sort is O(N log N).
-        // Since I can't import complex things easily without knowing stdlib well, 
-        // I'll assume N is small enough or try to implement Merge Sort or use builtin `turtles.sort`.
-        // `turtles` is array of records.
-        // `turtles = turtles.sort(isolated function(Turtle a, Turtle b) returns int { return b.p - a.p; });`
-        // Ballerina sort syntax varies by version.
-        // I will implement a quick sort just to be safe and dependency free.
         quickSort(turtles, 0, n - 1);
         
         int fleets = 0;
@@ -94,7 +82,7 @@ function partition(Turtle[] arr, int low, int high) returns int {
     int i = (low - 1);
     int j = low;
     while (j < high) {
-        if (arr[j].p > pivot) { // Descending order
+        if (arr[j].p > pivot) { 
             i = i + 1;
             Turtle temp = arr[i];
             arr[i] = arr[j];

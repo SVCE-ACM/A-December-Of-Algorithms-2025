@@ -2,8 +2,8 @@ import ballerina/io;
 import ballerina/regex;
 
 public function main() {
-    string|error line1 = io:readln(); // N
-    string|error line2 = io:readln(); // heights
+    string|error line1 = io:readln(); 
+    string|error line2 = io:readln(); 
     
     if (line2 is string) {
         string[] parts = regex:split(line2, " ");
@@ -16,14 +16,13 @@ public function main() {
         
         int n = heights.length();
         int[] result = [];
-        // Initialize result with -1
         int k = 0;
         while (k < n) {
             result.push(-1);
             k = k + 1;
         }
         
-        int[] stack = []; // Stores indices
+        int[] stack = []; 
         
         int i = 0;
         while (i < n) {

@@ -32,7 +32,7 @@ public function main() {
         string|error waterLine = io:readln();
         if (waterLine is string) {
             string[] wp = regex:split(waterLine, " ");
-            int[] queue = []; // Stores nodes
+            int[] queue = []; 
             int[] dist = [];
             int k = 0;
             while (k < v) {
@@ -56,7 +56,7 @@ public function main() {
             int countFilled = queue.length();
             
             while (queue.length() > 0) {
-                int curr = queue.remove(0); // Pop front
+                int curr = queue.remove(0); 
                 int[] neighbors = adj.get(curr.toString()) ?: [];
                 
                 foreach int neighbor in neighbors {

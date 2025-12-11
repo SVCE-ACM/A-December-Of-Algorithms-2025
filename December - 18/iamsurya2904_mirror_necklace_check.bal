@@ -2,8 +2,8 @@ import ballerina/io;
 import ballerina/regex;
 
 public function main() {
-    string|error line1 = io:readln(); // N = 5
-    string|error line2 = io:readln(); // Beads = 1 2 3 2 1
+    string|error line1 = io:readln(); 
+    string|error line2 = io:readln(); 
     
     if (line1 is string) {
         string[] p1 = regex:split(line1, "=");

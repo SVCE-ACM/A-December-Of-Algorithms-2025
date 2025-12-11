@@ -14,10 +14,6 @@ public function main() {
             }
         }
         
-        // Problem asks to display the sorted list.
-        // Simulation produces a sorted list.
-        // We can just sort the array.
-        // Bubble sort for simplicity in Ballerina
         int n = weights.length();
         int i = 0;
         while (i < n - 1) {

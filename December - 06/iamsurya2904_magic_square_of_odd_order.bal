@@ -3,12 +3,9 @@ import ballerina/io;
 public function main() {
     string|error input = io:readln();
     if (input is string) {
-        // Handle potential "Enter n: " prefix if present in automated tests, though unlikely in raw input
         string cleanInput = input; 
         int|error n = int:fromString(cleanInput);
         if (n is error) {
-             // Simple fallback parsing if needed
-             // For now assume clean integer input as per standard CP
              return;
         }
         
@@ -53,7 +50,6 @@ public function main() {
                 foreach int val in row {
                     rowStr = rowStr + val.toString() + "   ";
                 }
-                // Trim last spaces
                 io:println(rowStr.trim());
             }
         }

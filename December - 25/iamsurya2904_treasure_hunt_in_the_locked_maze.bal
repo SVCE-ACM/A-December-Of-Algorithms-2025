@@ -33,9 +33,6 @@ public function main() {
             i = i + 1;
         }
         
-        // 3D visited array: [r][c][mask]
-        // mask up to 2^10 = 1024
-        // To avoid 3D array complexity, use map<boolean> key="r,c,mask"
         map<boolean> visited = {};
         
         State[] queue = [];
@@ -47,7 +44,6 @@ public function main() {
         while (queue.length() > 0) {
             State curr = queue.remove(0);
             
-            // Check current cell type
             string cell = grid[curr.r].substring(curr.c, curr.c + 1);
             
             if (cell == "T") {
@@ -69,18 +65,15 @@ public function main() {
                     
                     int newMask = curr.mask;
                     
-                    // Key? 'a' is 97.
                     int code = nextCell.toCodePointInt(0);
-                    if (code >= 97 && code <= 106) { // a-j
+                    if (code >= 97 && code <= 106) { 
                         int keyBit = 1 << (code - 97);
                         newMask = newMask | keyBit;
                     }
                     
-                    // Door? 'A' is 65.
-                    if (code >= 65 && code <= 74) { // A-J
+                    if (code >= 65 && code <= 74) { 
                         int doorBit = 1 << (code - 65);
                         if ((curr.mask & doorBit) == 0) {
-                            // Locked
                             continue;
                         }
                     }

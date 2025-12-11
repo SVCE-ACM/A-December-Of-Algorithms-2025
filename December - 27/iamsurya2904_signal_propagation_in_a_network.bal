@@ -3,15 +3,13 @@ import ballerina/regex;
 import ballerina/lang.'int as ints;
 
 public function main() {
-    string|error l1 = io:readln(); // N
-    string|error l2 = io:readln(); // M
+    string|error l1 = io:readln(); 
+    string|error l2 = io:readln(); 
     
     if (l1 is string && l2 is string) {
         int n = checkpanic int:fromString(l1);
         int m = checkpanic int:fromString(l2);
         
-        // Adjacency
-        // Map of u -> list of [v, w]
         map<int[][]> adj = {};
         
         int i = 0;
@@ -30,19 +28,18 @@ public function main() {
             i = i + 1;
         }
         
-        string|error lS = io:readln(); // S
+        string|error lS = io:readln(); 
         int s = 0;
         if (lS is string) {
            s = checkpanic int:fromString(lS);
         }
         
-        // Dijkstra
         int[] dist = [];
         boolean[] visited = [];
         
         i = 0;
         while (i < n) {
-            dist.push(2147483647); // Int max
+            dist.push(2147483647); 
             visited.push(false);
             i = i + 1;
         }
@@ -50,7 +47,6 @@ public function main() {
         
         int count = 0;
         while (count < n) {
-            // Find min dist node not visited
             int u = -1;
             int minVal = 2147483647;
             

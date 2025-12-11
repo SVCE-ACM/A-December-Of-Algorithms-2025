@@ -4,7 +4,6 @@ import ballerina/regex;
 public function main() {
     string|error line1 = io:readln();
     if (line1 is string) {
-        // N is parsed but maybe not needed if we just read line 2
         string|error line2 = io:readln();
         if (line2 is string) {
             string[] parts = regex:split(line2, " ");

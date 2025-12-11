@@ -50,13 +50,7 @@ public function main() {
         }
         
         Point[] queue = [];
-        queue.push({r: 0, c: 0, dist: 0}); // Steps counted as movements? 
-        // Problem says "Minimum number of steps".
-        // Sample 1: 7 steps. Path length? Or edges?
-        // Start 0,0. End m-1,n-1.
-        // Sample 1 Explanation: right 2, down 3, right 2 = 7 steps.
-        // That is 2+3+2 = 7 moves.
-        // So start distance is 0.
+        queue.push({r: 0, c: 0, dist: 0}); 
         
         visited[0][0] = true;
         int minSteps = -1;
@@ -68,7 +62,6 @@ public function main() {
                 break;
             }
             
-            // Directions: U D L R
             int[][] dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
             foreach int[] d in dirs {
                 int nr = curr.r + d[0];

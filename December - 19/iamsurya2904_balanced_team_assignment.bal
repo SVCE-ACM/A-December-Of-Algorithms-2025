@@ -20,7 +20,6 @@ public function main() {
         int n = skills.length();
         int target = totalSum / 2;
         boolean[] dp = [];
-        // Initialize dp array of size target + 1
         int idx = 0;
         while (idx <= target) {
             dp.push(false);
@@ -49,7 +48,6 @@ public function main() {
         }
         
         int diff = (totalSum - bestSum) - bestSum;
-        // Absolute diff not needed as bestSum <= totalSum/2 => totalSum - bestSum >= bestSum
         io:println(diff);
     }
 }

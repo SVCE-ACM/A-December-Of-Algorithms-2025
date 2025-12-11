@@ -2,10 +2,8 @@ import ballerina/io;
 import ballerina/regex;
 
 public function main() {
-    // Problem asks to reorder linked list zig-zag. L0 Ln L1 Ln-1...
-    // Input format: N then values.
-    string|error line1 = io:readln(); // Enter N: 4
-    string|error line2 = io:readln(); // Enter node values: 1 2 3 4
+    string|error line1 = io:readln();
+    string|error line2 = io:readln();
     
     if (line2 is string) {
         string cleanLine2 = line2;

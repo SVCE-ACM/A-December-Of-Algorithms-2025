@@ -15,13 +15,11 @@ public function main() {
         }
         
         int n = nums.length();
-        int[] arr = nums; // Copy reference
+        int[] arr = nums; 
         
-        // Cyclic sort
         int i = 0;
         while (i < n) {
             while (arr[i] != arr[arr[i] - 1]) {
-                // Swap arr[i] and arr[arr[i]-1]
                 int correctIdx = arr[i] - 1;
                 int temp = arr[i];
                 arr[i] = arr[correctIdx];
