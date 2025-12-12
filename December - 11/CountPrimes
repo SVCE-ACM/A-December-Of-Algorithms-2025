@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class CountPrimes {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+
+        if (N <= 2) {
+            System.out.println("The count of prime numbers less than " + N + " is: 0");
+            return;
+        }
+
+        boolean[] prime = new boolean[N];
+        Arrays.fill(prime, true);
+        prime[0] = prime[1] = false;
+
+        for (int i = 2; i * i < N; i++) {
+            if (prime[i]) {
+                for (int j = i * i; j < N; j += i) {
+                    prime[j] = false;
+                }
+            }
+        }
+
+        int count = 0;
+        for (int i = 2; i < N; i++) {
+            if (prime[i]) count++;
+        }
+
+        System.out.println("The count of prime numbers less than " + N + " is: " + count);
+    }
+}
+output:
+C:\Users\Admin\Desktop>javac  CountPrimes.java
+
+C:\Users\Admin\Desktop>java  CountPrimes
+10
+The count of prime numbers less than 10 is: 4
+
+C:\Users\Admin\Desktop>
