@@ -1,4 +1,4 @@
-N=int(input("Enter N:"))
+N=int(input())
 summ=N*(N+1)//2
 arr=list(map(int,input().split()))
 for i in arr:
