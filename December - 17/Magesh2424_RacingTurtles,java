@@ -1,0 +1,69 @@
+import java.util.*;
+
+public class Magesh2424_RacingTurtles {
+
+    static class Turtle {
+        int position;
+        double time;
+
+        Turtle(int position, double time) {
+            this.position = position;
+            this.time = time;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Read target
+        int target = sc.nextInt();
+
+        // Read number of turtles
+        int n = sc.nextInt();
+
+        if (n == 0) {
+            System.out.println("No turtle fleets formed.");
+            sc.close();
+            return;
+        }
+
+        int[] position = new int[n];
+        int[] speed = new int[n];
+
+        // Read positions
+        for (int i = 0; i < n; i++) {
+            position[i] = sc.nextInt();
+        }
+
+        // Read speeds
+        for (int i = 0; i < n; i++) {
+            speed[i] = sc.nextInt();
+        }
+
+        Turtle[] turtles = new Turtle[n];
+
+        // Calculate time to reach target
+        for (int i = 0; i < n; i++) {
+            double time = (double)(target - position[i]) / speed[i];
+            turtles[i] = new Turtle(position[i], time);
+        }
+
+        // Sort by position descending
+        Arrays.sort(turtles, (a, b) -> b.position - a.position);
+
+        int fleets = 0;
+        double maxTime = 0;
+
+        // Count fleets
+        for (int i = 0; i < n; i++) {
+            if (turtles[i].time > maxTime) {
+                fleets++;
+                maxTime = turtles[i].time;
+            }
+        }
+
+        System.out.println("The number of turtle fleets is: " + fleets);
+
+        sc.close();
+    }
+}
