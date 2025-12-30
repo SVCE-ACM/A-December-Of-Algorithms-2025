@@ -28,7 +28,6 @@ int countTurtleFleets(int target, vector<int>& position, vector<int>& speed) {
             maxTime = turtles[i].second;
         }
     }
-
     return fleets;
 }
 
