@@ -29,6 +29,5 @@ int main() {
             diff = min(diff, totalSum - 2 * s);
         }
     }
-
     cout << "Minimum difference: " <<diff << endl;
 }
