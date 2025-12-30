@@ -31,5 +31,4 @@ int main() {
         cout << "The necklace is mirrored." << endl;
     else
         cout << "The necklace is not mirrored." << endl;
-
 }
