@@ -23,5 +23,4 @@ int main() {
 
     cout << "Next taller towers: ";
     for (long long x : result) cout << x << " ";
-
 }
