@@ -24,7 +24,6 @@ ListNode* removeNthFromEnd(ListNode* head, int n) {
     slow->next = slow->next->next;
     return dummy->next;
 }
-
 ListNode* createList(vector<int>& arr) {
     if (arr.empty()) return NULL;
 
