@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class MagicSquareOddOrder {
+public class devipriya_l_MagicSquareOddOrder {
 
     public static void main(String[] args) {
 

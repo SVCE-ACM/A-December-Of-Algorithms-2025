@@ -1,4 +1,4 @@
-public class TreasureTrailAdjustment {
+public class devipriya_l_TreasureTrailAdjustment {
     static class ListNode {
         int val;
         ListNode next;

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class IslandCounter {
+public class devipriya_l_IslandCounter {
 
     static int R, C;
     static int[][] grid;

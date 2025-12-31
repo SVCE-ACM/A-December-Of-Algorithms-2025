@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class CountingPrimeNumbers {
+public class devipriya_l_CountingPrimeNumbers {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class RacingTurtles {
+public class devipriya_l_RacingTurtles {
     public static int countFleets(int target, int[] position, int[] speed) {
         int n = position.length;
         if (n == 0) return 0;

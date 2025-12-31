@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class MissingAndDuplicateNumber {
+public class devipriya_l_MissingAndDuplicateNumber {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);

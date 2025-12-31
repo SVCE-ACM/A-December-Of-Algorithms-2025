@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class TotalOfDistinctValues {
+public class devipriya_l_TotalOfDistinctValues {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);

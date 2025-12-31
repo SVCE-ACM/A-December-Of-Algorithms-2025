@@ -1,4 +1,4 @@
-public class BridgeCrossingChallenge {
+public class devipriya_l_BridgeCrossingChallenge {
 
     public static boolean canReachLastStone(int[] stones) {
         int maxReach = 0;

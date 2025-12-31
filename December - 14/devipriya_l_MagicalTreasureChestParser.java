@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class MagicalTreasureChestParser {
+public class devipriya_l_MagicalTreasureChestParser {
         static class NestedChest {
         Integer value;
         List<NestedChest> list;

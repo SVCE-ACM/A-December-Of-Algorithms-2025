@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class BaseballScoreRecordKeeper {
+public class devipriya_l_BaseballScoreRecordKeeper {
 
     public static void main(String[] args) {
         String[] ops = {"5","2","C","D","+"};

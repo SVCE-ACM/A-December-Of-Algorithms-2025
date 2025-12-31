@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class MountainPeaksInTrail {
+public class devipriya_l_MountainPeaksInTrail {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);

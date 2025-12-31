@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class TargetSubarrayFinder {
+public class devipriya_l_TargetSubarrayFinder {
 
     public static void main(String[] args) {
 

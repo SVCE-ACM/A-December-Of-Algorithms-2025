@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class ZigZagLinkedList {
+public class devipriya_l_ZigZagLinkedList {
     static class ListNode {
         int val;
         ListNode next;

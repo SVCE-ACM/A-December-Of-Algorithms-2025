@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class RoyalFamilySeating {
+public class devipriya_l_RoyalFamilySeating {
     static class TreeNode {
         int val;
         TreeNode left, right;

@@ -1,4 +1,4 @@
-public class CafeteriaQueueChallenge {
+public class devipriya_l_CafeteriaQueueChallenge {
 
     public static void main(String[] args) {
         int[] students = {1, 1, 0, 0};
