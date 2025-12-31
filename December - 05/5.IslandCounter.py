@@ -22,4 +22,3 @@ for i in range(R):
             dfs(grid, i, j, R, C)
             count += 1
 print(f"Number of islands: {count}")
-
