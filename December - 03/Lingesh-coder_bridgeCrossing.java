@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class charusm03_bridgeCrossing {
+public class Lingesh-coder_bridgeCrossing {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -19,4 +19,5 @@ public class charusm03_bridgeCrossing {
         }
         return true;
     }
+
 }
