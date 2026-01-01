@@ -1,8 +1,4 @@
-import java.util.Scanner;
-import java.util.ArrayList;
-
-public class import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.*;
 
 public class Lingesh-coder_perfectSquaresCounter {
     public static void main(String[] args) {
@@ -44,4 +40,5 @@ public class Lingesh-coder_perfectSquaresCounter {
             arr.add(i * i);
         }
     }
+
 }
