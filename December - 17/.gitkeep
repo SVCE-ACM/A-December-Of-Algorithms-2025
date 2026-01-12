@@ -1,1 +1,34 @@
+def turtleFleets(target, n, position, speed):
+    if n == 0:
+        print("No turtle fleets formed.")
+        return
+
+    # Pair positions with speeds and sort based on position (nearest to finish first)
+    turtles = sorted(zip(position, speed), reverse=True)
+
+    fleets = 0
+    max_time = 0
+
+    for pos, spd in turtles:
+        time = (target - pos) / spd
+        # If this turtle takes more time, it forms a new fleet
+        if time > max_time:
+            fleets += 1
+            max_time = time
+
+    print(f"The number of turtle fleets is: {fleets}")
+
+
+# ---- Input Section ----
+target = int(input("Enter target distance: "))
+n = int(input("Enter number of turtles: "))
+
+if n > 0:
+    position = list(map(int, input("Enter positions: ").split()))
+    speed = list(map(int, input("Enter speeds: ").split()))
+else:
+    position = []
+    speed = []
+
+turtleFleets(target, n, position, speed)
 

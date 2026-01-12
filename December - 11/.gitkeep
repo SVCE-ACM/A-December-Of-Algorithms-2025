@@ -1,1 +1,20 @@
+# Count prime numbers less than N using Sieve of Eratosthenes
+
+N = int(input("Enter N: "))
+
+if N <= 2:
+    print(f"The count of prime numbers less than {N} is: 0")
+else:
+    sieve = [True] * N
+    sieve[0] = sieve[1] = False
+
+    p = 2
+    while p * p < N:
+        if sieve[p]:
+            for i in range(p * p, N, p):
+                sieve[i] = False
+        p += 1
+
+    prime_count = sum(sieve)
+    print(f"The count of prime numbers less than {N} is: {prime_count}")
 

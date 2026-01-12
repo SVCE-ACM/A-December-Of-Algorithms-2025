@@ -1,1 +1,54 @@
+def is_valid(board, r, c, ch):
+    # Check row and column
+    for i in range(9):
+        if board[r][i] == ch or board[i][c] == ch:
+            return False
+
+    # Check 3×3 sub-grid
+    box_r = (r // 3) * 3
+    box_c = (c // 3) * 3
+
+    for i in range(3):
+        for j in range(3):
+            if board[box_r + i][box_c + j] == ch:
+                return False
+
+    return True
+
+
+def solve_sudoku(board):
+    for r in range(9):
+        for c in range(9):
+            if board[r][c] == '.':
+                for ch in '123456789':
+                    if is_valid(board, r, c, ch):
+                        board[r][c] = ch
+                        if solve_sudoku(board):
+                            return True
+                        board[r][c] = '.'  # Backtrack
+                return False
+    return True
+
+
+def print_board(board):
+    for row in board:
+        print(" ".join(row))
+
+
+# --------- Input Example (You can modify for test cases) ---------
+
+board = [
+    ['5','3','.','.','7','.','.','.','.'],
+    ['6','.','.','1','9','5','.','.','.'],
+    ['.','9','8','.','.','.','.','6','.'],
+    ['8','.','.','.','6','.','.','.','3'],
+    ['4','.','.','8','.','3','.','.','1'],
+    ['7','.','.','.','2','.','.','.','6'],
+    ['.','6','.','.','.','.','2','8','.'],
+    ['.','.','.','4','1','9','.','.','5'],
+    ['.','.','.','.','8','.','.','7','9']
+]
+
+solve_sudoku(board)
+print_board(board)
 

@@ -1,1 +1,51 @@
+import heapq
+import sys
+
+def min_time_to_reach_all(N, edges, S):
+    graph = [[] for _ in range(N)]
+    
+    for u, v, t in edges:
+        graph[u].append((v, t))
+    
+    # Distance array initialized to infinity
+    dist = [sys.maxsize] * N
+    dist[S] = 0
+    
+    # Min-heap priority queue
+    pq = [(0, S)]  # (time, node)
+    
+    while pq:
+        current_time, node = heapq.heappop(pq)
+        
+        if current_time > dist[node]:
+            continue
+        
+        for neighbor, weight in graph[node]:
+            new_time = current_time + weight
+            if new_time < dist[neighbor]:
+                dist[neighbor] = new_time
+                heapq.heappush(pq, (new_time, neighbor))
+    
+    # If any tower is unreachable → return -1
+    if any(time == sys.maxsize for time in dist):
+        return -1
+    
+    # Otherwise, max time among all reachable towers
+    return max(dist)
+
+
+# -----------------------
+# Input Handling
+# -----------------------
+N = int(input())
+M = int(input())
+edges = []
+
+for _ in range(M):
+    u, v, t = map(int, input().split())
+    edges.append((u, v, t))
+
+S = int(input())
+
+print(min_time_to_reach_all(N, edges, S))
 

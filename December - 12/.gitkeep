@@ -1,1 +1,26 @@
+# Find missing and duplicate number in O(N) time and O(1) space
+
+N = int(input())
+arr = list(map(int, input().split()))
+
+duplicate = -1
+missing = -1
+
+# Mark visited indices
+for i in range(N):
+    val = abs(arr[i]) - 1  # convert to index
+
+    if arr[val] < 0:
+        duplicate = abs(arr[i])
+    else:
+        arr[val] = -arr[val]
+
+# Find missing number
+for i in range(N):
+    if arr[i] > 0:
+        missing = i + 1
+        break
+
+print(f"Missing Number: {missing}")
+print(f"Duplicate Number: {duplicate}")
 

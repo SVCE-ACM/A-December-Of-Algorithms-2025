@@ -1,1 +1,46 @@
+n = int(input("Enter n: "))
+
+# Check even condition
+if n % 2 == 0:
+    print("Magic square is only possible for odd values of n.")
+else:
+    # Magic constant
+    M = (n * (n*n + 1)) // 2
+    print(f"Magic constant: {M}")
+
+    # Initialize magic square
+    magic_square = [[0]*n for _ in range(n)]
+
+    # Siamese method
+    num = 1
+    i, j = 0, n // 2  # start position
+
+    while num <= n*n:
+        magic_square[i][j] = num
+        num += 1
+
+        new_i = (i - 1 + n) % n
+        new_j = (j + 1) % n
+
+        # if cell already filled
+        if magic_square[new_i][new_j] != 0:
+            i = (i + 1) % n
+        else:
+            i, j = new_i, new_j
+
+    # Print magic square
+    for row in magic_square:
+        print(*row)
+
+
+sample input
+Enter n: 5
+
+sample output
+Magic constant: 65
+9 3 22 16 15
+2 21 20 14 8
+25 19 13 7 1
+18 12 6 5 24
+11 10 4 23 17
 

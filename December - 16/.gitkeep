@@ -1,1 +1,52 @@
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def removeNthFromEnd(head: ListNode, n: int) -> ListNode:
+    dummy = ListNode(0, head)
+    fast = slow = dummy
+
+    # Move fast pointer n steps ahead
+    for _ in range(n):
+        fast = fast.next
+
+    # Move both until fast reaches the last node
+    while fast and fast.next:
+        fast = fast.next
+        slow = slow.next
+
+    # Remove target node
+    slow.next = slow.next.next
+
+    return dummy.next
+
+
+# Helper to create linked list
+def buildList(arr):
+    if not arr:
+        return None
+    head = ListNode(arr[0])
+    curr = head
+    for val in arr[1:]:
+        curr.next = ListNode(val)
+        curr = curr.next
+    return head
+
+# Helper to print linked list
+def printList(head):
+    arr = []
+    while head:
+        arr.append(head.val)
+        head = head.next
+    print(arr)
+
+
+#  Input Example:
+arr = [int(x) for x in input("Enter list values: ").split()]
+n = int(input("Enter n: "))
+head = buildList(arr)
+
+result = removeNthFromEnd(head, n)
+printList(result)
 

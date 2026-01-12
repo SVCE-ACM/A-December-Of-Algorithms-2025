@@ -1,1 +1,27 @@
+from collections import deque
+
+def parcel_sorting(weights):
+    q = deque(weights)
+    sorted_result = []
+
+    while q:
+        # Find the lightest parcel in queue
+        min_val = min(q)
+        min_index = q.index(min_val)
+        
+        # Rotate: Bring the min element to the front
+        q.rotate(-min_index)
+        
+        # Pick and Place the parcel into result
+        sorted_result.append(q.popleft())
+
+    return sorted_result
+
+
+# Input Handling
+N = int(input())
+weights = list(map(int, input().split()))
+
+result = parcel_sorting(weights)
+print(*result)
 

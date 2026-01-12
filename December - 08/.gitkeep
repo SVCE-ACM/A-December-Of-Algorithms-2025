@@ -1,1 +1,28 @@
+from collections import deque
 
+# Input handling
+students = list(map(int, input("Enter students preferences: ").split()))
+sandwiches = list(map(int, input("Enter sandwiches stack: ").split()))
+
+queue = deque(students)
+idx = 0  # sandwich pointer
+count = 0  # number of rotations without success
+
+while queue and count < len(queue):
+    if queue[0] == sandwiches[idx]:
+        queue.popleft()
+        idx += 1
+        count = 0  # reset since a match was found
+    else:
+        queue.append(queue.popleft())
+        count += 1  # one unsuccessful rotation
+
+# remaining students cannot eat
+print(len(queue))
+
+sample input
+Enter students preferences: 1 1 0 0
+Enter sandwiches stack: 0 1 0 1
+
+sample ouput
+0

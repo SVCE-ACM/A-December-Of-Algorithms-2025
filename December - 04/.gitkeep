@@ -1,1 +1,30 @@
+def find_subarray_with_sum(arr, N, K):
+    prefix_sum = 0
+    seen = {0: -1}  # prefix sum → index
+
+    for i in range(N):
+        prefix_sum += arr[i]
+
+        if (prefix_sum - K) in seen:
+            return seen[prefix_sum - K] + 1, i
+        
+        seen[prefix_sum] = i
+
+    return -1, -1
+
+
+# Input Handling
+N, K = map(int, input().split())
+arr = list(map(int, input().split()))
+
+start, end = find_subarray_with_sum(arr, N, K)
+print(start, end)
+
+sample input
+7 15
+1 2 3 7 5 1 2
+
+sample ouput
+2 4
+
 

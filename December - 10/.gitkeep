@@ -1,1 +1,26 @@
+# Zig-Zag Linked List Reordering
+
+# Taking input
+N = int(input("Enter N: "))
+values = list(map(int, input("Enter node values: ").split()))
+
+# Linked list represented using a simple list for pointer manipulation
+result = []
+
+left = 0
+right = N - 1
+
+# Alternate picking from left and right to form zig-zag order
+toggle = True
+while left <= right:
+    if toggle:
+        result.append(values[left])
+        left += 1
+    else:
+        result.append(values[right])
+        right -= 1
+    toggle = not toggle
+
+# Output the result
+print(*result)
 

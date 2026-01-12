@@ -1,1 +1,42 @@
+import sys
+sys.setrecursionlimit(10**7)
+
+def longestIncreasingPath(matrix):
+    if not matrix:
+        return 0
+    
+    M, N = len(matrix), len(matrix[0])
+    dp = [[-1] * N for _ in range(M)]  # Memoization table
+    
+    directions = [(1,0), (-1,0), (0,1), (0,-1)]  # Down, Up, Right, Left
+    
+    def dfs(r, c):
+        if dp[r][c] != -1:
+            return dp[r][c]
+        
+        best = 1  # At least the cell itself
+        for dr, dc in directions:
+            nr, nc = r + dr, c + dc
+            
+            if 0 <= nr < M and 0 <= nc < N and matrix[nr][nc] > matrix[r][c]:
+                best = max(best, 1 + dfs(nr, nc))
+        
+        dp[r][c] = best
+        return best
+
+    longest = 0
+    for i in range(M):
+        for j in range(N):
+            longest = max(longest, dfs(i, j))
+    
+    return longest
+
+
+# ------------------------
+# Input Handling
+# ------------------------
+M, N = map(int, input().split())
+matrix = [list(map(int, input().split())) for _ in range(M)]
+
+print(longestIncreasingPath(matrix))
 
