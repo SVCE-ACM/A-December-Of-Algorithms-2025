@@ -1,0 +1,80 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "dhanusiyasri_first_non_repeating_character",
+      "request": "launch",
+      "mainClass": "dhanusiyasri_first_non_repeating_character",
+      "projectName": "A-December-Of-Algorithms-2025_346f79fe"
+    },
+    {
+      "type": "java",
+      "name": "dhanusiyasri_efficient_parcel_sorting",
+      "request": "launch",
+      "mainClass": "dhanusiyasri_efficient_parcel_sorting",
+      "projectName": "A-December-Of-Algorithms-2025_346f79fe"
+    },
+    {
+      "type": "java",
+      "name": "dhanusiyasri_tower_visibility_challenge",
+      "request": "launch",
+      "mainClass": "dhanusiyasri_tower_visibility_challenge",
+      "projectName": "A-December-Of-Algorithms-2025_346f79fe"
+    },
+    {
+      "type": "java",
+      "name": "dhanusiyasri_mirror_necklace_check",
+      "request": "launch",
+      "mainClass": "dhanusiyasri_mirror_necklace_check",
+      "projectName": "A-December-Of-Algorithms-2025_346f79fe"
+    },
+    {
+      "type": "java",
+      "name": "dhanusiyasri_treasure_trail_adjustment",
+      "request": "launch",
+      "mainClass": "dhanusiyasri_treasure_trail_adjustment",
+      "projectName": "A-December-Of-Algorithms-2025_346f79fe"
+    },
+    {
+      "type": "java",
+      "name": "dhanusiyasri_royal_family_seating",
+      "request": "launch",
+      "mainClass": "dhanusiyasri_royal_family_seating",
+      "projectName": "A-December-Of-Algorithms-2025_346f79fe"
+    },
+    {
+      "type": "java",
+      "name": "dhanusiyasri_the_missing_positive_element",
+      "request": "launch",
+      "mainClass": "dhanusiyasri_the_missing_positive_element",
+      "projectName": "A-December-Of-Algorithms-2025_346f79fe"
+    },
+    {
+      "type": "java",
+      "name": "dhanusiyasri_counting_prime_numbers",
+      "request": "launch",
+      "mainClass": "dhanusiyasri_counting_prime_numbers",
+      "projectName": "A-December-Of-Algorithms-2025_346f79fe"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": ".",
+      "program": "build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
