@@ -1,0 +1,11 @@
+n = int(input())
+q = list(map(int, input().split()))
+result = []
+
+while q:
+    mn = min(q)
+    while q[0] != mn:
+        q.append(q.pop(0))
+    result.append(q.pop(0))
+
+print(*result)
