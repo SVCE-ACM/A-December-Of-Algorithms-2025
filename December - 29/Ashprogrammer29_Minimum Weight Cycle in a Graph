@@ -1,0 +1,55 @@
+import heapq
+from collections import defaultdict
+
+def dijkstra(start, end, adj, removed_edge):
+    pq = [(0, start)]
+    dist = {start: 0}
+
+    while pq:
+        d, node = heapq.heappop(pq)
+        if node == end:
+            return d
+        
+        if d > dist[node]:
+            continue
+
+        for nei, w in adj[node]:
+            if (node, nei) == removed_edge or (nei, node) == removed_edge:
+                continue
+            
+            nd = d + w
+            if nei not in dist or nd < dist[nei]:
+                dist[nei] = nd
+                heapq.heappush(pq, (nd, nei))
+
+    return float('inf')
+
+
+def minimum_cycle(V, edges):
+    # Build adjacency list
+    adj = defaultdict(list)
+    for u, v, w in edges:
+        adj[u].append((v, w))
+        adj[v].append((u, w))
+
+    min_cycle = float('inf')
+
+    # For each edge, remove it and compute shortest path between its endpoints
+    for u, v, w in edges:
+        shortest_path = dijkstra(u, v, adj, (u, v))
+        if shortest_path != float('inf'):
+            min_cycle = min(min_cycle, shortest_path + w)
+
+    return -1 if min_cycle == float('inf') else min_cycle
+
+
+# ---- MAIN DRIVER ----
+def solve():
+    V = int(input().strip())
+    E = int(input().strip())
+    edges = []
+    for _ in range(E):
+        u, v, w = map(int, input().split())
+        edges.append([u, v, w])
+
+    print(minimum_cycle(V, edges))

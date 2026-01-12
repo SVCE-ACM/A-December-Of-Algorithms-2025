@@ -1,0 +1,72 @@
+from collections import deque
+
+def solve():
+    M, N = map(int, input().split())
+    grid = [list(input().strip()) for _ in range(M)]
+
+ 
+    start = None
+    for i in range(M):
+        for j in range(N):
+            if grid[i][j] == 'S':
+                start = (i, j)
+                break
+
+   
+    q = deque()
+    visited = set()
+
+    sr, sc = start
+    q.append((sr, sc, 0, 0))  # (row, col, keys_mask, distance)
+    visited.add((sr, sc, 0))
+
+ 
+    directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+
+    while q:
+        r, c, keys, dist = q.popleft()
+
+     
+        if grid[r][c] == 'T':
+            print(dist)
+            return
+
+        for dr, dc in directions:
+            nr, nc = r + dr, c + dc
+
+       
+            if not (0 <= nr < M and 0 <= nc < N):
+                continue
+
+            cell = grid[nr][nc]
+            new_keys = keys
+
+          
+            if cell == '#':
+                continue
+
+            
+            if 'A' <= cell <= 'J':
+                key_bit = ord(cell.lower()) - ord('a')
+                if not (keys & (1 << key_bit)):  
+                    # Key not available → can't pass
+                    continue
+
+            
+            if 'a' <= cell <= 'j':
+                key_bit = ord(cell) - ord('a')
+                new_keys = keys | (1 << key_bit)
+
+          
+            if (nr, nc, new_keys) in visited:
+                continue
+
+            visited.add((nr, nc, new_keys))
+            q.append((nr, nc, new_keys, dist + 1))
+
+    
+    print(-1)
+
+
+# Run
+solve()

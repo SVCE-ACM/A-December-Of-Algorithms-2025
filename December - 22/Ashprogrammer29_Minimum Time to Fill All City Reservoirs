@@ -1,0 +1,41 @@
+from collections import deque, defaultdict
+
+def min_time_to_fill(V, E, edges, initial):
+    graph = defaultdict(list)
+    for u, v in edges:
+        graph[u].append(v)
+        graph[v].append(u)
+    
+    queue = deque()
+    filled = [False] * V
+    
+    
+    for i in range(V):
+        if initial[i] == 1:
+            queue.append(i)
+            filled[i] = True
+    
+    minutes = 0
+    while queue:
+        for _ in range(len(queue)):
+            node = queue.popleft()
+            for neighbor in graph[node]:
+                if not filled[neighbor]:
+                    filled[neighbor] = True
+                    queue.append(neighbor)
+        if queue:
+            minutes += 1
+    
+   
+    if all(filled):
+        print(minutes)
+    else:
+        print(-1)
+
+
+
+V, E = map(int, input().split())
+edges = [tuple(map(int, input().split())) for _ in range(E)]
+initial = list(map(int, input().split()))
+
+min_time_to_fill(V, E, edges, initial)
