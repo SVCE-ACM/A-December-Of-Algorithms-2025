@@ -1,0 +1,45 @@
+import java.util.*;
+
+public class Lingesh-coder_shortestPathWarehouse {
+    static int[] dx = { -1, 1, 0, 0 };
+    static int[] dy = { 0, 0, -1, 1 };
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int m = sc.nextInt();
+        int n = sc.nextInt();
+        int[][] grid = new int[m][n];
+        for (int i = 0; i < m; i++)
+            for (int j = 0; j < n; j++)
+                grid[i][j] = sc.nextInt();
+
+        System.out.println(minSteps(grid, m, n));
+    }
+
+    public static int minSteps(int[][] grid, int m, int n) {
+        boolean[][] visited = new boolean[m][n];
+        Queue<int[]> q = new LinkedList<>();
+        if (grid[0][0] == 1)
+            return -1;
+
+        q.add(new int[] { 0, 0, 0 });
+        visited[0][0] = true;
+
+        while (!q.isEmpty()) {
+            int[] cur = q.poll();
+            int x = cur[0], y = cur[1], steps = cur[2];
+            if (x == m - 1 && y == n - 1)
+                return steps;
+
+            for (int i = 0; i < 4; i++) {
+                int nx = x + dx[i], ny = y + dy[i];
+                if (nx >= 0 && nx < m && ny >= 0 && ny < n && !visited[nx][ny] && grid[nx][ny] == 0) {
+                    visited[nx][ny] = true;
+                    q.add(new int[] { nx, ny, steps + 1 });
+                }
+            }
+        }
+        return -1;
+    }
+}
