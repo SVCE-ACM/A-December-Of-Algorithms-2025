@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class UniqueSum {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int N = sc.nextInt();
+        int[] arr = new int[N];
+
+        for (int i = 0; i < N; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+  
+        HashMap<Integer, Integer> freq = new HashMap<>();
+
+        for (int num : arr) {
+            freq.put(num, freq.getOrDefault(num, 0) + 1);
+        }
+
+        long sum = 0;
+        for (int num : freq.keySet()) {
+            if (freq.get(num) == 1) {
+                sum += num;
+            }
+        }
+
+        System.out.println(sum);
+    }
+}
+output:
+C:\Users\Admin\Desktop>javac UniqueSum.java
+
+C:\Users\Admin\Desktop>java UniqueSum
+6
+1 2 2 3 4 4
+4
+
+C:\Users\Admin\Desktop>

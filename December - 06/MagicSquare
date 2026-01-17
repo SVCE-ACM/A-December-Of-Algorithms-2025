@@ -1,0 +1,54 @@
+import java.util.*;
+
+public class MagicSquare {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        if (n % 2 == 0) {
+            System.out.println("Magic square is only possible for odd values of n.");
+            return;
+        }
+
+        int[][] magic = new int[n][n];
+        int number = 1;
+        int i = 0, j = n / 2;
+
+        while (number <= n * n) {
+            magic[i][j] = number++;
+
+            int newI = (i - 1 + n) % n;
+            int newJ = (j + 1) % n;
+
+            if (magic[newI][newJ] != 0) {
+                i = (i + 1) % n;
+            } else {
+                i = newI;
+                j = newJ;
+            }
+        }
+
+        int M = n * (n * n + 1) / 2;
+        System.out.println("Magic constant: " + M);
+
+        for (int[] row : magic) {
+            for (int val : row) {
+                System.out.print(val + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+output:
+C:\Users\Admin\Desktop>javac MagicSquare.java
+
+C:\Users\Admin\Desktop>java MagicSquare
+5
+Magic constant: 65
+17 24 1 8 15
+23 5 7 14 16
+4 6 13 20 22
+10 12 19 21 3
+11 18 25 2 9
+
+C:\Users\Admin\Desktop>

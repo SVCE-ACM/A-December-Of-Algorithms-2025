@@ -1,0 +1,91 @@
+import java.util.*;
+
+public class ReorderList {
+    static class Node {
+        int data;
+        Node next;
+        Node(int d) { data = d; }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int N = sc.nextInt();
+        Node head = null, tail = null;
+
+        for (int i = 0; i < N; i++) {
+            Node newNode = new Node(sc.nextInt());
+            if (head == null) {
+                head = newNode;
+                tail = newNode;
+            } else {
+                tail.next = newNode;
+                tail = newNode;
+            }
+        }
+
+        if (head == null || head.next == null) {
+            printList(head);
+            return;
+        }
+
+        Node slow = head, fast = head;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        Node second = slow.next;
+        slow.next = null;
+
+        second = reverse(second);
+
+        Node first = head;
+        Node dummy = new Node(0);
+        Node curr = dummy;
+
+        while (first != null || second != null) {
+            if (first != null) {
+                curr.next = first;
+                curr = curr.next;
+                first = first.next;
+            }
+            if (second != null) {
+                curr.next = second;
+                curr = curr.next;
+                second = second.next;
+            }
+        }
+
+        printList(dummy.next);
+    }
+
+    static Node reverse(Node head) {
+        Node prev = null;
+        Node curr = head;
+        while (curr != null) {
+            Node next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+
+    static void printList(Node head) {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data);
+            if (temp.next != null) System.out.print(" ");
+            temp = temp.next;
+        }
+    }
+}
+output:
+C:\Users\Admin\Desktop>javac ReorderList.java
+
+C:\Users\Admin\Desktop>java ReorderList
+4
+1 2 3 4
+1 4 2 3
+C:\Users\Admin\Desktop>

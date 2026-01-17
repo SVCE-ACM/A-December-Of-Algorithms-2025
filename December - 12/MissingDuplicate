@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class MissingDuplicate {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int N = sc.nextInt();
+        int[] arr = new int[N];
+
+        for (int i = 0; i < N; i++) arr[i] = sc.nextInt();
+
+        int i = 0;
+        while (i < N) {
+            int correct = arr[i] - 1;
+            if (arr[i] != arr[correct]) {
+                int temp = arr[i];
+                arr[i] = arr[correct];
+                arr[correct] = temp;
+            } else {
+                i++;
+            }
+        }
+
+        int missing = -1, duplicate = -1;
+        for (i = 0; i < N; i++) {
+            if (arr[i] != i + 1) {
+                duplicate = arr[i];
+                missing = i + 1;
+                break;
+            }
+        }
+
+        System.out.println("Missing Number: " + missing);
+        System.out.println("Duplicate Number: " + duplicate);
+    }
+}
+output:
+C:\Users\Admin\Desktop>javac MissingDuplicate.java
+
+C:\Users\Admin\Desktop>java MissingDuplicate
+5
+3 1 2 2 5
+Missing Number: 4
+Duplicate Number: 2
+
+C:\Users\Admin\Desktop>
